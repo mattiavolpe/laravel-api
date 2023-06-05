@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="table-responsive">
-  <table class="table table-primary align-middle text-center">
+<div class="table-responsive rounded overflow-hidden mb-3">
+  <table class="table table-primary align-middle text-center mb-0">
     <thead>
       <tr class="align-middle">
         <th scope="col">ID</th>
@@ -20,7 +20,15 @@
         <td scope="row">{{ $project->repositoryUrl }}</td>
         <td scope="row">{{ $project->starting_date }}</td>
         <td scope="row">
-          Show/Edit/Delete
+          <a class="text-decoration-none" href="{{ route('admin.projects.show', $project->id) }}">
+            <i class="fa-regular fa-eye fa-fw"></i>
+          </a>
+          <a class="text-decoration-none" href="">
+            <i class="fa-regular fa-pen-to-square fa-fw"></i>
+          </a>
+          <a class="text-decoration-none" href="">
+            <i class="fa-regular fa-trash-can fa-fw"></i>
+          </a>
         </td>
       </tr>
       @empty

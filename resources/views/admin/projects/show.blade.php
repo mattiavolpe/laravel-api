@@ -1,0 +1,25 @@
+@extends('layouts.admin')
+
+@section('content')
+<div class="card overflow-hidden">
+    <div class="card-header bg-primary text-light">
+        <h2 class="mb-0">Projects resume</h2>
+    </div>
+    <div class="card-body bg-dark text-light">
+        <h4>Project name:
+          <br>
+          <span class="fw-normal">{{$project->name}}</span>
+        </h4>
+        <hr>
+        <h4>Repository URL:
+          <br>
+          <span class="fw-normal">{{$project->repositoryUrl}}</span>
+        </h4>
+        <hr>
+        <h4>Project starting date:
+          <br>
+          <span class="fw-normal">{{$project->starting_date}}</span>
+        </h4>
+    </div>
+</div>
+@endsection
