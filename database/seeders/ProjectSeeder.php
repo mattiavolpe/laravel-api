@@ -21,7 +21,7 @@ class ProjectSeeder extends Seeder
             $project->name = $faker->sentence();
             $project->slug = Project::generateSlug($project->name);
             $project->repositoryUrl = Project::generateRepositoryUrl($project->slug);
-            $project->starting_date = date("Y-m-d") . " " . date("H:m:s");
+            $project->starting_date = date("Y-m-d") . " " . date("H:i:s");
             $project->save();
         }
     }

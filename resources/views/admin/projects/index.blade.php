@@ -34,15 +34,12 @@
           <a class="text-decoration-none btn btn-warning text-dark my-2" href="{{ route('admin.projects.edit', $project->id) }}">
             <i class="fa-regular fa-pen-to-square fa-fw"></i>
           </a>
-          <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post">
-            @csrf
-            @method("delete")
-            <button type="submit" class="btn btn-danger text-dark">
-              <i class="fa-regular fa-trash-can fa-fw"></i>
-            </button>
-          </form>
+          <a class="text-decoration-none btn btn-danger text-dark" href="#">
+            <i class="fa-regular fa-trash-can fa-fw"></i>
+          </a>
         </td>
       </tr>
+      @include("partials.deletionModal")
       @empty
       <tr>
         <td scope="row">No projects found</td>
