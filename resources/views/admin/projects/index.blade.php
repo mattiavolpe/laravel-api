@@ -28,9 +28,13 @@
           <a class="text-decoration-none" href="{{ route('admin.projects.edit', $project->id) }}">
             <i class="fa-regular fa-pen-to-square fa-fw"></i>
           </a>
-          <a class="text-decoration-none" href="">
-            <i class="fa-regular fa-trash-can fa-fw"></i>
-          </a>
+          <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post">
+            @csrf
+            @method("delete")
+            <button type="submit" class="btn btn-danger">
+              <i class="fa-regular fa-trash-can fa-fw"></i>
+            </button>
+          </form>
         </td>
       </tr>
       @empty
