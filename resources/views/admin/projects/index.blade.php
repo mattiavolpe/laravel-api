@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
+<a class="btn btn-primary mb-3" href="{{ route('admin.projects.create') }}" role="button">New Project</a>
+
 <div class="table-responsive rounded overflow-hidden mb-3">
   <table class="table table-primary align-middle text-center mb-0">
     <thead>

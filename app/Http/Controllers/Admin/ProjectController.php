@@ -27,7 +27,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.projects.create");
     }
 
     /**
@@ -38,7 +38,11 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $valData = $request->validated();
+        $valData["repositoryUrl"] = Project::createRepositoryUrl($valData["name"]);
+        $valData["starting_date"] = date("Y-m-d");
+        Project::create($valData);
+        return to_route("admin.projects.index");
     }
 
     /**
