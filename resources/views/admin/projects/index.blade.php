@@ -25,7 +25,7 @@
           <a class="text-decoration-none" href="{{ route('admin.projects.show', $project->id) }}">
             <i class="fa-regular fa-eye fa-fw"></i>
           </a>
-          <a class="text-decoration-none" href="">
+          <a class="text-decoration-none" href="{{ route('admin.projects.edit', $project->id) }}">
             <i class="fa-regular fa-pen-to-square fa-fw"></i>
           </a>
           <a class="text-decoration-none" href="">

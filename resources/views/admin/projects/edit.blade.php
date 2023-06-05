@@ -8,11 +8,12 @@
 </div>
 @endforeach
 @endif
-<form action="{{ route('admin.projects.store') }}" method="post">
+<form action="{{ route('admin.projects.update', $project->id) }}" method="post">
   @csrf
+  @method("put")
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
-    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Project name">
+    <input type="text" name="name" id="name" value="{{ old('name', $project->name) }}" class="form-control @error('name') is-invalid @enderror" placeholder="Project name">
     @error('name')
     <small class="text-danger">Please, fill the field correctly</small>
     @enderror

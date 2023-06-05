@@ -64,7 +64,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view("admin.projects.edit", compact("project"));
     }
 
     /**
@@ -76,7 +76,11 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $valData = $request->validated();
+        $valData["repositoryUrl"] = Project::createRepositoryUrl($valData["name"]);
+        $valData["starting_date"] = date("Y-m-d");
+        $project->update($valData);
+        return to_route("admin.projects.show", $project->id);
     }
 
     /**
