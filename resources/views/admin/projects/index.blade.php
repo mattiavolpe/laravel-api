@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="table-responsive">
-  <table class="table table-primary">
+  <table class="table table-primary align-middle text-center">
     <thead>
-      <tr>
+      <tr class="align-middle">
         <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Repository URL</th>

@@ -5,8 +5,8 @@ main {
     ul {
       li {
         background-color: #212529;
-        transition: 0.3s;
-        
+        transition: background-color 0.3s;
+
         &:hover {
           cursor: pointer;
           background-color: $primary;

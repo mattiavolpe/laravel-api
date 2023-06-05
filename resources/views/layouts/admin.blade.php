@@ -82,10 +82,10 @@
         <div class="row">
           <div class="col-3">
             <ul class="list-unstyled">
-              <li class="p-3 rounded-3 mb-3">
+              <li class="p-3 rounded-3 mb-3 {{ Route::currentRouteName() === 'admin.dashboard' ? 'bg-primary' : '' }}">
                 <a class="text-light fw-bold text-decoration-none" href="{{ route('admin.dashboard') }}">Dashboard</a>
               </li>
-              <li class="p-3 rounded-3">
+              <li class="p-3 rounded-3 {{ Route::currentRouteName() === 'admin.projects.index' ? 'bg-primary' : '' }}">
                 <a class="text-light fw-bold text-decoration-none" href="{{ route('admin.projects.index') }}">Projects</a>
               </li>
             </ul>
