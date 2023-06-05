@@ -3,6 +3,12 @@
 @section('content')
 <a class="btn btn-primary mb-3" href="{{ route('admin.projects.create') }}" role="button">New Project</a>
 
+@if(session("message"))
+<div class="alert alert-success" role="alert">
+  <strong>{{ session("message") }}</strong>
+</div>
+@endif
+
 <div class="table-responsive rounded overflow-hidden mb-3">
   <table class="table table-primary align-middle text-center mb-0">
     <thead>
@@ -22,16 +28,16 @@
         <td scope="row">{{ $project->repositoryUrl }}</td>
         <td scope="row">{{ $project->starting_date }}</td>
         <td scope="row">
-          <a class="text-decoration-none" href="{{ route('admin.projects.show', $project->id) }}">
+          <a class="text-decoration-none btn btn-success text-dark" href="{{ route('admin.projects.show', $project->id) }}">
             <i class="fa-regular fa-eye fa-fw"></i>
           </a>
-          <a class="text-decoration-none" href="{{ route('admin.projects.edit', $project->id) }}">
+          <a class="text-decoration-none btn btn-warning text-dark my-2" href="{{ route('admin.projects.edit', $project->id) }}">
             <i class="fa-regular fa-pen-to-square fa-fw"></i>
           </a>
           <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post">
             @csrf
             @method("delete")
-            <button type="submit" class="btn btn-danger">
+            <button type="submit" class="btn btn-danger text-dark">
               <i class="fa-regular fa-trash-can fa-fw"></i>
             </button>
           </form>

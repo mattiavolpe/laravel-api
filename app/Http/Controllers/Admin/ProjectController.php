@@ -39,10 +39,11 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $valData = $request->validated();
-        $valData["repositoryUrl"] = Project::createRepositoryUrl($valData["name"]);
-        $valData["starting_date"] = date("Y-m-d");
+        $valData["slug"] = Project::generateSlug($valData["name"]);
+        $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
+        $valData["starting_date"] = date("Y-m-d") . " " . date("H:m:s");
         Project::create($valData);
-        return to_route("admin.projects.index");
+        return to_route("admin.projects.index")->with("message", "Project successfully inserted");
     }
 
     /**
@@ -77,10 +78,11 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $valData = $request->validated();
-        $valData["repositoryUrl"] = Project::createRepositoryUrl($valData["name"]);
-        $valData["starting_date"] = date("Y-m-d");
+        $valData["slug"] = Project::generateSlug($valData["name"]);
+        $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
+        $valData["starting_date"] = date("Y-m-d") . " " . date("H:m:s");
         $project->update($valData);
-        return to_route("admin.projects.show", $project->id);
+        return to_route("admin.projects.show", $project->id)->with("message", "Project successfully updated");
     }
 
     /**
@@ -92,6 +94,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return to_route("admin.projects.index");
+        return to_route("admin.projects.index")->with("message", "Project successfully deleted");
     }
 }

@@ -15,7 +15,9 @@
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <!-- Usando Vite -->
   @vite(['resources/js/app.js'])
@@ -87,7 +89,7 @@
               <li class="p-3 rounded-3 mb-3 {{ Route::currentRouteName() === 'admin.dashboard' ? 'bg-primary' : '' }}">
                 <a class="text-light fw-bold text-decoration-none" href="{{ route('admin.dashboard') }}">Dashboard</a>
               </li>
-              <li class="p-3 rounded-3 {{ Route::currentRouteName() === 'admin.projects.index' ? 'bg-primary' : '' }}">
+              <li class="p-3 rounded-3 {{ str_starts_with(Route::currentRouteName(), 'admin.projects') ? 'bg-primary' : '' }}">
                 <a class="text-light fw-bold text-decoration-none" href="{{ route('admin.projects.index') }}">Projects</a>
               </li>
             </ul>

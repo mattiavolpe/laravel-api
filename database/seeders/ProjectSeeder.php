@@ -19,8 +19,9 @@ class ProjectSeeder extends Seeder
         for ($i=0; $i < 10; $i++) { 
             $project = new Project();
             $project->name = $faker->sentence();
-            $project->repositoryUrl = Project::createRepositoryUrl($project->name);
-            $project->starting_date = date("Y-m-d");
+            $project->slug = Project::generateSlug($project->name);
+            $project->repositoryUrl = Project::generateRepositoryUrl($project->slug);
+            $project->starting_date = date("Y-m-d") . " " . date("H:m:s");
             $project->save();
         }
     }
