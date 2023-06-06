@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 
+@section('currentPage')
+{{ __('Projects') }}
+@endsection
+
 @section('content')
-<a class="btn btn-primary mb-3" href="{{ route('admin.projects.create') }}" role="button">New Project</a>
+<a class="new_project btn text-black fw-bold mb-3" href="{{ route('admin.projects.create') }}" role="button">New Project</a>
 
 @if(session("message"))
 <div class="alert alert-success" role="alert">
@@ -9,8 +13,8 @@
 </div>
 @endif
 
-<div class="table-responsive rounded overflow-hidden mb-3">
-  <table class="table table-primary align-middle text-center mb-0">
+<div class="table-responsive bg-black mb-3">
+  <table class="table align-middle text-center mb-0">
     <thead>
       <tr class="align-middle">
         <th scope="col">ID</th>
@@ -23,18 +27,18 @@
     <tbody>
       @forelse($projects as $project)
       <tr>
-        <td scope="row">{{ $project->id }}</td>
-        <td scope="row">{{ $project->name }}</td>
-        <td scope="row">{{ $project->repositoryUrl }}</td>
-        <td scope="row">{{ $project->starting_date }}</td>
+        <td scope="row" class="text-white">{{ $project->id }}</td>
+        <td scope="row" class="text-white">{{ $project->name }}</td>
+        <td scope="row" class="text-white">{{ $project->repositoryUrl }}</td>
+        <td scope="row" class="text-white">{{ $project->starting_date }}</td>
         <td scope="row">
-          <a class="text-decoration-none btn btn-success text-dark" href="{{ route('admin.projects.show', $project->id) }}">
+          <a class="show_button text-decoration-none btn" href="{{ route('admin.projects.show', $project) }}">
             <i class="fa-regular fa-eye fa-fw"></i>
           </a>
-          <a class="text-decoration-none btn btn-warning text-dark my-2" href="{{ route('admin.projects.edit', $project->id) }}">
+          <a class="edit_button text-decoration-none btn my-2" href="{{ route('admin.projects.edit', $project) }}">
             <i class="fa-regular fa-pen-to-square fa-fw"></i>
           </a>
-          <a class="text-decoration-none btn btn-danger text-dark" href="#">
+          <a class="delete_button text-decoration-none btn" href="#">
             <i class="fa-regular fa-trash-can fa-fw"></i>
           </a>
         </td>

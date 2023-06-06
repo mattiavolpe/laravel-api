@@ -5,7 +5,7 @@ import.meta.glob([
     '../img/**'
 ])
 
-const trashButtons = document.querySelectorAll(".fa-trash-can");
+const trashButtons = document.querySelectorAll(".delete_button");
 
 trashButtons.forEach((button, index) => {
     button.addEventListener("click", (e) => {

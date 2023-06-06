@@ -1,29 +1,247 @@
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  font-family: 'Prompt', sans-serif;
-}
+  font-family: 'Chakra Petch', sans-serif;
 
-main {
-  .col-3 {
-    ul {
-      li {
-        background-color: #212529;
-        transition: background-color 0.3s;
+  header {
 
-        &:hover {
-          cursor: pointer;
-          background-color: $primary;
+    nav {
+
+      &.navbar {
+        box-shadow: 0 0.5rem 1rem #7c858d22;
+        z-index: 1;
+  
+        .app_logo {
+          font-size: 2rem;
+          color: #5DDA5D;
+          filter: drop-shadow(0 0 3px #5DDA5D);
+          animation: logo_flash 1.5s infinite;
+        }
+  
+        .nav-link,
+        .nav-link.show {
+          color: #5DDA5D;
+        }
+  
+        .navbar-toggler,
+        .dropdown-menu-right {
+          border: 1px solid #5DDA5D;
+          color: #5DDA5D;
+        }
+  
+        .dropdown-menu-right {
+          left: unset;
+          right: 0;
+          background-color: black;
+  
+          .dropdown-item {
+            color: #5DDA5D;
+  
+            &:hover {
+              color: black;
+              background-color: #5DDA5D;
+              font-weight: 700;
+  
+              &::before {
+                content: "> ";
+              }
+            }
+          }
         }
       }
     }
   }
+}
+
+main {
+  .current_page {
+    color: #5DDA5D;
+  }
+
+  .col-3 {
+    
+    ul {
+      border-top-left-radius: 2rem;
+      border-bottom-left-radius: 2rem;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+      background-color: #212529;
+
+      li {
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        transition: background-color 0.3s;
+
+        & > a {
+          color: white;
+          transition: color 0.3s;
+        }
+
+        &.active_link {
+          background-color: #5DDA5D;
+          border-top-right-radius: 0.5rem;
+          border-bottom-right-radius: 0.5rem;
+          margin-right: -0.5rem;
+
+          & > a {
+            color: black;
+            font-weight: 700;
+          }
+
+          & > a::before {
+            content: "> ";
+          }
+        }
+
+        &:not(.active_link):hover {
+          cursor: pointer;
+
+          & > a {
+            color: #5DDA5D;
+          }
+        }
+      }
+    }
+  }
+
   .col-9 {
+
+    .dashboard,
+    .show_page .card {
+      box-shadow: -2px 2px 7px 0 #5DDA5D;
+
+      .card-header {
+        background-color: #5DDA5D;
+        color: black;
+      }
+
+      .card-body {
+
+        h4 {
+          color: #5DDA5D;
+
+          span {
+            color: white;
+          }
+        }
+
+        hr {
+          border-top: 1px solid #5DDA5D;
+        }
+      }
+    }
+
+    .new_project {
+      background-color: #5DDA5D;
+    }
+
+    .table > :not(caption) > * > * {
+      background-color: transparent;
+    }
+
+    table {
+      border: 1px solid #5DDA5D;
+
+      .show_button {
+        border-color: #5DDA5D;
+
+        & > i {
+          color: #5DDA5D;
+        }
+
+        &:hover {
+          background-color: #5DDA5D;
+
+          & > i {
+            color: black;
+          }
+        }
+      }
+
+      .edit_button {
+        border-color: #FFC107;
+
+        & > i {
+          color: #FFC107;
+        }
+
+        &:hover {
+          background-color: #FFC107;
+
+          & > i {
+            color: black;
+          }
+        }
+      }
+
+      .delete_button {
+        border-color: #DC3545;
+
+        & > i {
+          color: #DC3545;
+        }
+
+        &:hover {
+          background-color: #DC3545;
+
+          & > i {
+            color: black;
+          }
+        }
+      }
+    }
+
+    table td,
+    table th {
+      border-bottom: 1px solid #5DDA5D;
+    }
+
+    thead > tr {
+      background-color: #5DDA5D;
+    }
+
+    form {
+
+      label {
+        color: #5DDA5D;
+      }
+
+      input.form-control {
+        background-color: black;
+        color: #5DDA5D;
+        border: 1px solid #5DDA5D;
+
+        &::placeholder {
+          color: #5DDA5D;
+        }
+      }
+
+      [type="submit"] {
+        background-color: #5DDA5D;
+      }
+
+      [type="reset"] {
+        background-color: black;
+        color: #5DDA5D;
+        border: 1px solid #5DDA5D;
+      }
+    }
+
     .deletionModal {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      background-color: #5DDA5D;
+
+      [type="submit"] {
+        border: 1px solid black;
+      }
+
+      [name="cancelDeletion"] {
+        background-color: black;
+        color: #5DDA5D;
+      }
       
       &.off {
         display: none;
@@ -33,5 +251,23 @@ main {
         display: block;
       }
     }
+  }
+}
+
+@keyframes logo_flash {
+  from {
+    filter: opacity(1) drop-shadow(0 0 3px #5DDA5D);
+  }
+  20% {
+    filter: opacity(1) drop-shadow(0 0 3px #5DDA5D);
+  }
+  50% {
+    filter: opacity(0.3) drop-shadow(0 0 0 #5DDA5D);
+  }
+  80% {
+    filter: opacity(1) drop-shadow(0 0 3px #5DDA5D);
+  }
+  to {
+    filter: opacity(1) drop-shadow(0 0 3px #5DDA5D);
   }
 }

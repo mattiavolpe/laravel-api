@@ -1,6 +1,11 @@
 @extends("layouts.admin")
 
+@section('currentPage')
+{{ __('New project') }}
+@endsection
+
 @section("content")
+
 @if($errors->any())
 @foreach($errors->all() as $error)
 <div class="alert alert-danger" role="alert">
@@ -8,6 +13,7 @@
 </div>
 @endforeach
 @endif
+
 <form action="{{ route('admin.projects.store') }}" method="post">
   @csrf
   <div class="mb-3">
@@ -17,7 +23,8 @@
     <small class="text-danger">Please, fill the field correctly</small>
     @enderror
   </div>
-  <button type="submit" class="btn btn-primary">Insert project</button>
-  <button type="reset" class="btn btn-danger">Reset fields</button>
+  <button type="submit" class="btn fw-bold">Insert project</button>
+  <button type="reset" class="btn fw-bold mx-3">Reset fields</button>
 </form>
+
 @endsection

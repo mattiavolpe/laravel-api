@@ -82,7 +82,7 @@ class ProjectController extends Controller
         $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
         $valData["starting_date"] = date("Y-m-d") . " " . date("H:i:s");
         $project->update($valData);
-        return to_route("admin.projects.show", $project->id)->with("message", "Project successfully updated");
+        return to_route("admin.projects.show", $project)->with("message", "Project successfully updated");
     }
 
     /**
