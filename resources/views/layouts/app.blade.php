@@ -13,19 +13,26 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-black">
     <div id="app">
 
         @include("partials.header")
 
         <main>
-            @yield('content')
+            <div class="container">
+                <h2 class="fs-4 my-4 current_page">
+                ./@yield("currentPage")
+                </h2>
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>

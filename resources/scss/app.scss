@@ -256,6 +256,51 @@ main {
       }
     }
   }
+
+  .profile_page .card {
+    box-shadow: -2px 2px 7px 0 #5DDA5D;
+
+    header {
+      background-color: #5DDA5D;
+      color: black;
+    }
+
+    form:not(#send-verification),
+    .delete_profile_wrapper {
+      background-color: black;
+      padding: 1rem;
+    }
+
+    label {
+      color: #5DDA5D;
+    }
+
+    .btn_green {
+      background-color: #5DDA5D;
+      border: 1px solid #5DDA5D;
+      color: black;
+    }
+
+    input {
+      background-color: black;
+      border: 1px solid #5DDA5D;
+      color: #5DDA5D;
+
+      &::placeholder {
+        color: #5DDA5D;
+      }
+    }
+
+    .delete_profile_wrapper {
+      
+      button {
+        border: 1px solid #DC3545;
+        background-color: black;
+        color: #DC3545;
+      }
+    }
+
+  }
 }
 
 @keyframes logo_flash {

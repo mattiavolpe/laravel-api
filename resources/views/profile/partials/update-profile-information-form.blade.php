@@ -1,10 +1,10 @@
 <section>
-    <header>
-        <h2 class="text-secondary">
+    <header class="p-3">
+        <h2>
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-muted">
+        <p class="mb-0 text-muted">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
@@ -45,7 +45,7 @@
                 <p class="text-sm mt-2 text-muted">
                     {{ __('Your email address is unverified.') }}
 
-                    <button form="send-verification" class="btn btn-outline-dark">
+                    <button form="send-verification" class="btn btn_green">
                         {{ __('Click here to re-send the verification email.') }}
                     </button>
                 </p>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="d-flex align-items-center gap-4">
-            <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
+            <button class="btn btn_green" type="submit">{{ __('Save') }}</button>
 
             @if (session('status') === 'profile-updated')
             <script>
