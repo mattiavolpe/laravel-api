@@ -66,6 +66,7 @@ main {
       border-top-right-radius: 0.5rem;
       border-bottom-right-radius: 0.5rem;
       background-color: #212529;
+      box-shadow: inset 0 0 16px 0 black;
 
       li {
         border-top-left-radius: 0.5rem;
@@ -232,15 +233,18 @@ main {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: #5DDA5D;
+      background-color: black;
+      border: 1px solid #5DDA5D;
 
       [type="submit"] {
-        border: 1px solid black;
+        background-color: #5DDA5D;
+        color: black;
       }
 
       [name="cancelDeletion"] {
         background-color: black;
         color: #5DDA5D;
+        border: 1px solid #5DDA5D;
       }
       
       &.off {
