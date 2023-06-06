@@ -40,6 +40,9 @@ class ProjectController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Project::generateSlug($valData["name"]);
+        if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 0) {
+            return to_route("admin.projects.create")->with("message", "Please use a name that is unique, without considering punctuation");
+        }
         $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
         $valData["starting_date"] = date("Y-m-d") . " " . date("H:i:s");
         Project::create($valData);
@@ -79,6 +82,9 @@ class ProjectController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Project::generateSlug($valData["name"]);
+        if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 0) {
+            return to_route("admin.projects.edit", $project)->with("message", "Please use a name that is unique, without considering punctuation");
+        }
         $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
         $valData["starting_date"] = date("Y-m-d") . " " . date("H:i:s");
         $project->update($valData);
