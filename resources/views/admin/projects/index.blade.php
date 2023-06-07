@@ -45,7 +45,7 @@
           </a>
         </td>
       </tr>
-      @include("partials.deletionModal")
+      @include("partials.projectDeletionModal")
       @empty
       <tr>
         <td scope="row">No projects found</td>
