@@ -226,6 +226,22 @@ main {
         color: #5DDA5D;
         border: 1px solid #5DDA5D;
       }
+
+      input,
+      select {
+        height: 40px;
+      }
+
+      select {
+        background-color: transparent;
+        border: 1px solid #5DDA5D;
+        color: #5DDA5D;
+        padding: 0 12px;        
+
+        option {
+          background-color: black;
+        }
+      }
     }
 
     .deletionModal {
