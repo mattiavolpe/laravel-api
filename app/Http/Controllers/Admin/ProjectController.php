@@ -85,7 +85,7 @@ class ProjectController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Project::generateSlug($valData["name"]);
-        if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 0) {
+        if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 1) {
             return to_route("admin.projects.edit", $project)->with("message", "Please use a name that is unique, without considering punctuation");
         }
         $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);

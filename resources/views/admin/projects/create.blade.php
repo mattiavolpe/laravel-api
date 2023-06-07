@@ -34,7 +34,7 @@
     <select class="form-select form-select-lg" name="type_id" id="type_id">
       <option value="">--- Select type ---</option>
       @foreach($types as $type)
-      <option value="{{ $type->id }}">{{ $type->name }}</option>
+      <option value="{{ $type->id }}" {{ $type->id == old('type_id') ? 'selected' : '' }}>{{ $type->name }}</option>
       @endforeach
     </select>
   </div>
