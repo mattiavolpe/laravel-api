@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('currentPage')
-{{ __('Profile') }}
-@endsection
+@section('currentPage', __('Profile'))
 
 @section('content')
 

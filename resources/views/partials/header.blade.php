@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-black position-sticky top-0 start-0">
     <div class="container">
-      <a class="navbar-brand me-0 d-flex align-items-center" href="{{ route('welcome') }}">
+      <a class="navbar-brand me-0 d-flex align-items-center" href="{{ route('home') }}">
         <div class="app_logo">$ > Boolfolio</div>
       </a>
       <button class="navbar-toggler p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

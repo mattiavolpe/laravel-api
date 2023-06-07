@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('home');
+})->name('home');
 
 Route::middleware(["auth", "verified"])->prefix("admin")->name("admin.")->group(function() {
     Route::get('/', [DashboardController::class, "index"])->name('dashboard');

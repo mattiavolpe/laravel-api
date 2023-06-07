@@ -1,8 +1,6 @@
 @extends('layouts.admin')
 
-@section('currentPage')
-{{ __('View project') }}
-@endsection
+@section('currentPage', __('View project'))
 
 @section('content')
 

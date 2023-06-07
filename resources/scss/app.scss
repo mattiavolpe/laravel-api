@@ -26,6 +26,10 @@ body {
         .nav-link.show {
           color: #5DDA5D;
         }
+
+        .nav-link:hover {
+          color: #66ff66;
+        }
   
         .navbar-toggler,
         .dropdown-menu-right {

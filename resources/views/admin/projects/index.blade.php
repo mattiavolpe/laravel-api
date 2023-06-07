@@ -1,8 +1,6 @@
 @extends('layouts.admin')
 
-@section('currentPage')
-{{ __('Projects') }}
-@endsection
+@section('currentPage', __('Projects'))
 
 @section('content')
 <a class="new_project btn text-black fw-bold mb-3" href="{{ route('admin.projects.create') }}" role="button">New Project</a>

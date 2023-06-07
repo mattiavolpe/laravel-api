@@ -1,8 +1,6 @@
 @extends('layouts.admin')
 
-@section('currentPage')
-{{ __('Types') }}
-@endsection
+@section('currentPage', __('Types'))
 
 @section('content')
 <a class="new_project btn text-black fw-bold mb-3" href="{{ route('admin.types.create') }}" role="button">New Type</a>
