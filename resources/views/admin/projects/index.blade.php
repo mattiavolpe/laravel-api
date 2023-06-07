@@ -40,15 +40,15 @@
           <a class="edit_button text-decoration-none btn my-2" href="{{ route('admin.projects.edit', $project) }}">
             <i class="fa-regular fa-pen-to-square fa-fw"></i>
           </a>
-          <a class="delete_button text-decoration-none btn" href="#">
+          <button class="delete_button text-decoration-none btn">
             <i class="fa-regular fa-trash-can fa-fw"></i>
-          </a>
+          </button>
         </td>
       </tr>
       @include("partials.projectDeletionModal")
       @empty
       <tr>
-        <td scope="row">No projects found</td>
+        <td class="text_matrix" scope="row">No projects found</td>
       </tr>
       @endforelse
     </tbody>

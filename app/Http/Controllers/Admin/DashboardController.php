@@ -11,8 +11,11 @@ class DashboardController extends Controller
     public function index() {
         $projects = Project::orderBydesc("starting_date")->get();
         $totalProjects = count($projects);
-        $newestProject = $projects[0];
-        $oldestProject = $projects[$totalProjects - 1];
-        return view("admin.dashboard", compact("totalProjects", "newestProject", "oldestProject"));
+        if($totalProjects > 0) {
+            $newestProject = $projects[0];
+            $oldestProject = $projects[$totalProjects - 1];
+            return view("admin.dashboard", compact("totalProjects", "newestProject", "oldestProject"));
+        }
+        return view("admin.dashboard", compact("totalProjects"));
     }
 }

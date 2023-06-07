@@ -14,12 +14,14 @@
         <h4>./Total projects:
             <span class="fw-normal">{{$totalProjects}}</span>
         </h4>
+        @if($totalProjects > 0)
         <h4>./Newest project:
             <span class="fw-normal">"{{$newestProject->name}}" - {{$newestProject->starting_date}}</span>
         </h4>
         <h4>./Oldest project:
             <span class="fw-normal">"{{$oldestProject->name}}" - {{$oldestProject->starting_date}}</span>
         </h4>
+        @endif
     </div>
 </div>
 

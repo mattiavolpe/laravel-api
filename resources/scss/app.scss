@@ -3,6 +3,10 @@
 body {
   font-family: 'Chakra Petch', sans-serif;
 
+  .text_matrix {
+    color: #5DDA5D;
+  }
+
   header {
 
     nav {
@@ -236,7 +240,7 @@ main {
         background-color: transparent;
         border: 1px solid #5DDA5D;
         color: #5DDA5D;
-        padding: 0 12px;        
+        padding: 0 12px;
 
         option {
           background-color: black;
