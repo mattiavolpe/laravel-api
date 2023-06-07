@@ -32,6 +32,13 @@
             <br>
             <span class="fw-normal">{{$project->starting_date}}</span>
           </h4>
+          @if($project->type)
+          <hr>
+          <h4>./Project type:
+            <br>
+            <span class="fw-normal">{{$project->type?->name}}</span>
+          </h4>
+          @endif
       </div>
   </div>
 </div>

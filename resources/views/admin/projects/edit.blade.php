@@ -30,6 +30,15 @@
     <small class="text-danger">Please, fill the field correctly</small>
     @enderror
   </div>
+  <div class="mb-3">
+    <label for="type_id" class="form-label">Type</label>
+    <select class="form-select form-select-lg" name="type_id" id="type_id">
+      <option value="">--- Select type ---</option>
+      @foreach($types as $type)
+      <option value="{{ $type->id }}">{{ $type->name }}</option>
+      @endforeach
+    </select>
+  </div>
   <button type="submit" class="btn fw-bold">Update project</button>
   <button type="reset" class="btn fw-bold mx-3">Reset fields</button>
 </form>
