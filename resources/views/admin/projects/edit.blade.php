@@ -40,8 +40,12 @@
   @foreach($technologies as $technology)
   <div class="form-check">
     <label class="form-check-label" for="technology{{$technology->id}}">
-    <input class="form-check-input" type="checkbox" name="technologies[]" value="{{ $technology->id }}" id="technology{{$technology->id}}">
-      {{ $technology->name }}
+    @if(old('technologies'))
+    <input class="form-check-input" type="checkbox" name="technologies[]" value="{{ $technology->id }}" id="technology{{$technology->id}}" {{ in_array($technology->id, old('technologies')) ? "checked" : "" }}>
+    @else
+    <input class="form-check-input" type="checkbox" name="technologies[]" value="{{ $technology->id }}" id="technology{{$technology->id}}" {{ $project->technologies->contains($technology->id) ? "checked" : "" }}>
+    @endif
+    {{ $technology->name }}
     </label>
   </div>
   @endforeach

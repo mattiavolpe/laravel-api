@@ -37,6 +37,15 @@
             <span class="fw-normal">{{$project->type?->name}}</span>
           </h4>
           @endif
+          @if(count($project->technologies) > 0)
+          <hr>
+          <h4>./Project technologies:
+            @foreach($project->technologies as $technology)
+            <br>
+            <span class="fw-normal">{{$technology->name}}</span>
+            @endforeach
+          </h4>
+          @endif
       </div>
   </div>
 </div>

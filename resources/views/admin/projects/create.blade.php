@@ -36,6 +36,14 @@
       @endforeach
     </select>
   </div>
+  @foreach($technologies as $technology)
+  <div class="form-check">
+    <label class="form-check-label" for="technology{{$technology->id}}">
+    <input class="form-check-input" type="checkbox" name="technologies[]" value="{{ $technology->id }}" id="technology{{$technology->id}}" {{ in_array($technology->id, old('technologies', [])) ? "checked" : "" }}>
+      {{ $technology->name }}
+    </label>
+  </div>
+  @endforeach
   <button type="submit" class="btn fw-bold">Insert project</button>
   <button type="reset" class="btn fw-bold mx-3">Reset fields</button>
 </form>

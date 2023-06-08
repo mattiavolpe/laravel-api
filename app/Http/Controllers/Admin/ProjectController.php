@@ -30,7 +30,8 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::orderBy('name')->get();
-        return view("admin.projects.create", compact("types"));
+        $technologies = Technology::orderBy('name')->get();
+        return view("admin.projects.create", compact("types", "technologies"));
     }
 
     /**
@@ -48,7 +49,10 @@ class ProjectController extends Controller
         }
         $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
         $valData["starting_date"] = date("Y-m-d") . " " . date("H:i:s");
-        Project::create($valData);
+        $newProject = Project::create($valData);
+        if($request["technologies"]) {
+            $newProject->technologies()->attach($valData["technologies"]);
+        }
         return to_route("admin.projects.index")->with("message", "Project successfully inserted");
     }
 
