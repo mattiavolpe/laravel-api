@@ -16,11 +16,11 @@
           <h2 class="mb-0 fw-bold">Technology #{{$technology->id}}</h2>
       </div>
       <div class="card-body bg-black text-white">
-          <h4>./technology name:
+          <h4>./Technology name:
             <br>
             <span class="fw-normal">{{$technology->name}}</span>
           </h4>
-          @if($technology->projects)
+          @if(count($technology->projects) > 0)
           <hr>
           @foreach($technology->projects as $project)
           <h4>./Project name:

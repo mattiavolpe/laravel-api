@@ -20,7 +20,7 @@
             <br>
             <span class="fw-normal">{{$type->name}}</span>
           </h4>
-          @if($type->projects)
+          @if(count($type->projects) > 0)
           <hr>
           @foreach($type->projects as $project)
           <h4>./Project name:
