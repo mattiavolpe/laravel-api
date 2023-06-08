@@ -38,7 +38,13 @@ class TechnologyController extends Controller
      */
     public function store(StoreTechnologyRequest $request)
     {
-        //
+        $valData = $request->validated();
+        $valData["slug"] = Technology::generateSlug($valData["name"]);
+        if(count(Technology::where('slug', $valData["slug"])->get()->toArray()) > 0) {
+            return to_route("admin.technologies.create")->with("message", "Please use a name that is unique, without considering punctuation");
+        }
+        Technology::create($valData);
+        return to_route("admin.technologies.index")->with("message", "Technology successfully inserted");
     }
 
     /**
@@ -72,7 +78,13 @@ class TechnologyController extends Controller
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
-        //
+        $valData = $request->validated();
+        $valData["slug"] = Technology::generateSlug($valData["name"]);
+        if(count(Technology::where('slug', $valData["slug"])->get()->toArray()) > 1) {
+            return to_route("admin.technologies.edit", $technology)->with("message", "Please use a name that is unique, without considering punctuation");
+        }
+        $technology->update($valData);
+        return to_route("admin.technologies.show", $technology)->with("message", "Technology successfully updated");
     }
 
     /**
@@ -83,6 +95,7 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
-        //
+        $technology->delete();
+        return to_route("admin.technologies.index")->with("message", "Technology successfully deleted");
     }
 }

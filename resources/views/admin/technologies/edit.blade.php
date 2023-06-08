@@ -18,7 +18,7 @@
 @endforeach
 @endif
 
-<form action="{{ route('admin.technologies.update', $technoology) }}" method="post">
+<form action="{{ route('admin.technologies.update', $technology) }}" method="post">
   @csrf
   @method("put")
   <div class="mb-3">
