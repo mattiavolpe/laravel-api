@@ -20,6 +20,7 @@
         <th scope="col">Repository URL</th>
         <th scope="col">Starting date</th>
         <th scole="col">Type</th>
+        <th scole="col">Technologies</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -31,6 +32,11 @@
         <td scope="row" class="text-white">{{ $project->repositoryUrl }}</td>
         <td scope="row" class="text-white">{{ $project->starting_date }}</td>
         <td scope="row" class="text-white">{{ $project->type?->name }}</td>
+        <th scole="col">
+          @foreach($project->technologies as $technology)
+          <span class="text-white d-block fw-normal">{{ $technology->name }}</span>
+          @endforeach
+        </th>
         <td scope="row">
           <a class="show_button text-decoration-none btn" href="{{ route('admin.projects.show', $project) }}">
             <i class="fa-regular fa-eye fa-fw"></i>

@@ -7,6 +7,7 @@ use App\Models\Type;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Technology;
 
 class ProjectController extends Controller
 {
@@ -71,7 +72,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::orderBy('name')->get();
-        return view("admin.projects.edit", compact("project", "types"));
+        $technologies = Technology::orderBy('name')->get();
+        return view("admin.projects.edit", compact("project", "types", "technologies"));
     }
 
     /**
@@ -91,6 +93,11 @@ class ProjectController extends Controller
         $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
         $valData["starting_date"] = date("Y-m-d") . " " . date("H:i:s");
         $project->update($valData);
+        if($request["technologies"]) {
+            $project->technologies()->sync($valData["technologies"]);
+        } else {
+            $project->technologies()->sync([]);
+        }
         return to_route("admin.projects.show", $project)->with("message", "Project successfully updated");
     }
 
