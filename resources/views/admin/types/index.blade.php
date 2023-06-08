@@ -17,6 +17,7 @@
       <tr class="align-middle">
         <th scope="col">ID</th>
         <th scope="col">Name</th>
+        <th scope="col">Projects</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -25,6 +26,7 @@
       <tr>
         <td scope="row" class="text-white">{{ $type->id }}</td>
         <td scope="row" class="text-white">{{ $type->name }}</td>
+        <th scope="row" class="text-white">{{count($type->projects)}}</th>
         <td scope="row">
           <a class="show_button text-decoration-none btn" href="{{ route('admin.types.show', $type) }}">
             <i class="fa-regular fa-eye fa-fw"></i>
@@ -40,7 +42,7 @@
       @include("partials.typeDeletionModal")
       @empty
       <tr>
-        <td class="text_matrix" scope="row">No types found</td>
+        <td class="text_custom_green" scope="row">No types found</td>
       </tr>
       @endforelse
     </tbody>

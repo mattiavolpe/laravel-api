@@ -46,7 +46,7 @@
       @include("partials.projectDeletionModal")
       @empty
       <tr>
-        <td class="text_matrix" scope="row">No projects found</td>
+        <td class="text_custom_green" scope="row">No projects found</td>
       </tr>
       @endforelse
     </tbody>

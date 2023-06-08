@@ -3,8 +3,22 @@
 body {
   font-family: 'Chakra Petch', sans-serif;
 
-  .text_matrix {
-    color: #5DDA5D;
+  input:focus,
+  input:focus-within {
+    outline: 0 !important;
+    box-shadow: 0 0 5px 2px #5DDA5D !important;
+  }
+
+  .text_custom_green {
+    color: #5DDA5D !important;
+  }
+
+  .bg_custom_green {
+    background-color: #5DDA5D !important;
+  }
+
+  .border_custom_green {
+    border: 1px solid #5DDA5D !important;
   }
 
   header {
