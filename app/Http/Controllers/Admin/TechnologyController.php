@@ -49,7 +49,7 @@ class TechnologyController extends Controller
      */
     public function show(Technology $technology)
     {
-        //
+        return view("admin.technologies.show", compact("technology"));
     }
 
     /**
@@ -60,7 +60,7 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
-        //
+        return view("admin.technologies.edit", compact("technology"));
     }
 
     /**

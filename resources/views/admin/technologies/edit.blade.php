@@ -1,6 +1,6 @@
 @extends("layouts.admin")
 
-@section('currentPage', __('Edit type'))
+@section('currentPage', __('Edit technology'))
 
 @section("content")
 
@@ -18,17 +18,17 @@
 @endforeach
 @endif
 
-<form action="{{ route('admin.types.update', $type) }}" method="post">
+<form action="{{ route('admin.technologies.update', $technoology) }}" method="post">
   @csrf
   @method("put")
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
-    <input type="text" name="name" id="name" value="{{ old('name', $type->name) }}" class="form-control @error('name') is-invalid @enderror" placeholder="Type name">
+    <input type="text" name="name" id="name" value="{{ old('name', $technology->name) }}" class="form-control @error('name') is-invalid @enderror" placeholder="Technology name">
     @error('name')
     <small class="text-danger">Please, fill the field correctly</small>
     @enderror
   </div>
-  <button type="submit" class="btn fw-bold">Update type</button>
+  <button type="submit" class="btn fw-bold">Update technology</button>
   <button type="reset" class="btn fw-bold mx-3">Reset fields</button>
 </form>
 
