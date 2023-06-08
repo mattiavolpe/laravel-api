@@ -9,6 +9,9 @@
     <li class="p-3 {{ str_starts_with(Route::currentRouteName(), 'admin.types') ? 'active_link' : '' }}">
       <a class="text-decoration-none w-100 d-block" href="{{ route('admin.types.index') }}">{{__('Types')}}</a>
     </li>
+    <li class="p-3 {{ str_starts_with(Route::currentRouteName(), 'admin.technologies') ? 'active_link' : '' }}">
+      <a class="text-decoration-none w-100 d-block" href="{{ route('admin.technologies.index') }}">{{__('Technologies')}}</a>
+    </li>
   </ul>
 </div>
 <!-- /.col-3 -->
