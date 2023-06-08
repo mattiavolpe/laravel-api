@@ -95,7 +95,6 @@ class ProjectController extends Controller
             return to_route("admin.projects.edit", $project)->with("message", "Please use a name that is unique, without considering punctuation");
         }
         $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
-        $valData["starting_date"] = date("Y-m-d") . " " . date("H:i:s");
         $project->update($valData);
         if($request["technologies"]) {
             $project->technologies()->sync($valData["technologies"]);
