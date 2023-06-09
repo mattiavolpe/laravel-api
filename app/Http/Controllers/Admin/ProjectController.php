@@ -8,6 +8,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Technology;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -18,7 +19,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderByDesc("id")->get();
+        $projects = Auth::user()->projects()->orderByDesc("id")->get();
         return view("admin.projects.index", compact("projects"));
     }
 

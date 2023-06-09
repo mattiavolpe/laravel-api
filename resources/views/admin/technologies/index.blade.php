@@ -42,7 +42,7 @@
       @include("partials.technologyDeletionModal")
       @empty
       <tr>
-        <td class="text_custom_green" scope="row">No technology found</td>
+        <td class="text_custom_green" scope="row">No technologies found</td>
       </tr>
       @endforelse
     </tbody>

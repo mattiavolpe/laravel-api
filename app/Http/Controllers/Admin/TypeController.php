@@ -6,6 +6,7 @@ use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TypeController extends Controller
 {
@@ -16,7 +17,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Type::orderByDesc("id")->get();
+        $types = Auth::user()->types()->orderByDesc("id")->get();
         return view("admin.types.index", compact("types"));
     }
 
