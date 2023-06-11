@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\TechnologyController;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $projects = Project::orderByDesc('id')->get();
+    $mainUser = User::find(1);
+    $projects = $mainUser->projects()->orderByDesc('id')->get();
     return view('home', compact("projects"));
 })->name('home');
 
