@@ -17,7 +17,7 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        $technologies = Auth::user()->technologies()->orderByDesc("id")->get();
+        $technologies = Auth::user()->technologies()->orderByDesc("id")->paginate(8);
         return view("admin.technologies.index", compact("technologies"));
     }
 

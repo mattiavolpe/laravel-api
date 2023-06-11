@@ -17,7 +17,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Auth::user()->types()->orderByDesc("id")->get();
+        $types = Auth::user()->types()->orderByDesc("id")->paginate(8);
         return view("admin.types.index", compact("types"));
     }
 
