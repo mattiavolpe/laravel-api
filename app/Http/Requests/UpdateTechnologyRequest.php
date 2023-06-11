@@ -25,7 +25,7 @@ class UpdateTechnologyRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => ["required", Rule::unique("types", "name")->ignore($this->type), "min:2", "max:100"],
+            "name" => ["required", Rule::unique("technologies", "name")->ignore($this->technology), "min:2", "max:100"],
         ];
     }
 }
