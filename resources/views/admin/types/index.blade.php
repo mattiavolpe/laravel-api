@@ -34,7 +34,7 @@
           <a class="edit_button text-decoration-none btn my-2" href="{{ route('admin.types.edit', $type) }}">
             <i class="fa-regular fa-pen-to-square fa-fw"></i>
           </a>
-          <button class="delete_button text-decoration-none btn">
+          <button type="button" class="delete_button text-decoration-none btn">
             <i class="fa-regular fa-trash-can fa-fw"></i>
           </button>
         </td>
