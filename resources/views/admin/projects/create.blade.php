@@ -28,6 +28,16 @@
     @enderror
   </div>
   <div class="mb-3">
+    <label for="repositoryUrl" class="form-label">Repository URL</label>
+    <input type="text" name="repositoryUrl" id="repositoryUrl" class="form-control @error('repositoryUrl') is-invalid @enderror" value="{{ old('repositoryUrl') }}" placeholder="Project repository URL">
+    <small>
+      <span class="text_custom_green">If you leave it blank, will be generated a URL like "https://github.com/yourusername/your-project-name"</span>
+    </small>
+    @error('name')
+    <small class="text-danger">Please, fill the field correctly.</small>
+    @enderror
+  </div>
+  <div class="mb-3">
     <label for="type_id" class="form-label">Type</label>
     <select class="form-select form-select-lg" name="type_id" id="type_id">
       <option value="">--- Select type ---</option>
