@@ -21,6 +21,13 @@
             <span class="fw-normal">{{$project->name}}</span>
           </h4>
           <hr>
+          @if($project->image)
+          <h4>./Project image:
+            <br>
+            <img style="max-width: 300px;" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} image">
+          </h4>
+          <hr>
+          @endif
           <h4>./Repository URL:
             <br>
             <span class="fw-normal">{{$project->repositoryUrl}}</span>
