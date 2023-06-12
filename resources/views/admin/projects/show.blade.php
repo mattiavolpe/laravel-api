@@ -28,7 +28,7 @@
           @endif
           <h4>./Repository URL:
             <br>
-            <span class="fw-normal">{{$project->repositoryUrl}}</span>
+            <a href="{{ $project->repositoryUrl }}" target="_blank" class="text-white">{{ $project->repositoryUrl }}</a>
           </h4>
           <hr>
           <h4>./Project starting date:
