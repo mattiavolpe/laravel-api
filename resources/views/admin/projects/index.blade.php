@@ -32,7 +32,7 @@
         <td scope="row" class="text-white">{{ $project->name }}</td>
         @if($project->image)
         <td scope="row">
-          <img width="100" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} image">
+          <img style="cursor: pointer;" width="100" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} image">
         </td>
         @else
         <td></td>

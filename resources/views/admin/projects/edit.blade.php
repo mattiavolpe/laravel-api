@@ -41,7 +41,9 @@
   <div class="mb-3">
     <label for="image" class="form-label">Image</label>
     <div class="d-flex align-items-center">
+      @if($project->image)
       <img width="100" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} image" class="flex-shrink-0">
+      @endif
       <input type="file" name="image" id="image" class="form-control" placeholder="Project image" aria-describedby="imageHelper">
     </div>
     @error('image')
