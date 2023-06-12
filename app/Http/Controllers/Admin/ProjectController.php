@@ -105,7 +105,11 @@ class ProjectController extends Controller
         if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 1) {
             return to_route("admin.projects.edit", $project)->with("message", "Please use a name that is unique, without considering punctuation");
         }
-        $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
+        if(!$request["repositoryUrl"]) {
+            $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
+        } else {
+            $valData["repositoryUrl"] = $request["repositoryUrl"];
+        }
         if($request->hasFile("image")) {
             if($project->image) {
                 Storage::delete($project->image);
