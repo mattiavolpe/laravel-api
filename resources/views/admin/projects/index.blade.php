@@ -11,7 +11,7 @@
 </div>
 @endif
 
-<div class="table-responsive bg-black mb-3">
+<div class="table-responsive bg-black mb-5">
   <table class="table align-middle text-center mb-0">
     <thead>
       <tr class="align-middle">

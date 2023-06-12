@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="show_page">
+<div class="show_page pb-5">
   @if(session("message"))
   <div class="alert alert-success" role="alert">
     <strong>{{ session("message") }}</strong>
@@ -22,10 +22,8 @@
           </h4>
           <hr>
           @if($project->image)
-          <h4>./Project image:
-            <br>
-            <img style="max-width: 300px;" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} image">
-          </h4>
+          <h4>./Project image:</h4>
+          <img width="100%" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} image">
           <hr>
           @endif
           <h4>./Repository URL:

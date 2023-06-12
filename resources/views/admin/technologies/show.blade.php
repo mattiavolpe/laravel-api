@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="show_page">
+<div class="show_page pb-5">
   @if(session("message"))
   <div class="alert alert-success" role="alert">
     <strong>{{ session("message") }}</strong>
