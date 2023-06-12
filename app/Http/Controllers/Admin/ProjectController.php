@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Technology;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -55,6 +56,8 @@ class ProjectController extends Controller
         }
         $valData["starting_date"] = date("Y-m-d") . " " . date("H:i:s");
         $valData["user_id"] = Auth::id();
+        $imagePath = Storage::put("uploads", $valData["image"]);
+        $valData["image"] = $imagePath;
         $newProject = Project::create($valData);
         if($request["technologies"]) {
             $newProject->technologies()->attach($valData["technologies"]);

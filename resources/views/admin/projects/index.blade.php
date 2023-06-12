@@ -17,6 +17,7 @@
       <tr class="align-middle">
         <th scope="col">ID</th>
         <th scope="col">Name</th>
+        <th scope="col">Image</th>
         <th scope="col">Repository URL</th>
         <th scope="col">Starting date</th>
         <th scole="col">Type</th>
@@ -29,6 +30,9 @@
       <tr>
         <td scope="row" class="text-white">{{ $project->id }}</td>
         <td scope="row" class="text-white">{{ $project->name }}</td>
+        <td scope="row">
+          <img width="100" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} image">
+        </td>
         <td scope="row" class="text-white">{{ $project->repositoryUrl }}</td>
         <td scope="row" class="text-white">{{ $project->starting_date }}</td>
         <td scope="row" class="text-white">{{ $project->type?->name }}</td>
