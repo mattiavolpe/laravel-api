@@ -30,9 +30,13 @@
       <tr>
         <td scope="row" class="text-white">{{ $project->id }}</td>
         <td scope="row" class="text-white">{{ $project->name }}</td>
+        @if($project->image)
         <td scope="row">
           <img width="100" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} image">
         </td>
+        @else
+        <td></td>
+        @endif
         <td scope="row" class="text-white">{{ $project->repositoryUrl }}</td>
         <td scope="row" class="text-white">{{ $project->starting_date }}</td>
         <td scope="row" class="text-white">{{ $project->type?->name }}</td>

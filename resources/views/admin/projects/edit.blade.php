@@ -39,6 +39,16 @@
     @enderror
   </div>
   <div class="mb-3">
+    <label for="image" class="form-label">Image</label>
+    <div class="d-flex align-items-center">
+      <img width="100" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name }} image" class="flex-shrink-0">
+      <input type="file" name="image" id="image" class="form-control" placeholder="Project image" aria-describedby="imageHelper">
+    </div>
+    @error('image')
+    <small class="text-danger">Please, fill the field correctly.</small>
+    @enderror
+  </div>
+  <div class="mb-3">
     <label for="type_id" class="form-label">Type</label>
     <select class="form-select form-select-lg" name="type_id" id="type_id">
       <option value="">--- Select type ---</option>
