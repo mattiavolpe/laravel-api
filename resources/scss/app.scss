@@ -22,12 +22,12 @@ body {
   }
 
   header {
+    z-index: 1;
 
     nav {
 
       &.navbar {
         box-shadow: 0 0.5rem 1rem #7c858d22;
-        z-index: 1;
   
         .app_logo {
           font-size: 2rem;
