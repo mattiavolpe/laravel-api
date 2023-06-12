@@ -56,8 +56,10 @@ class ProjectController extends Controller
         }
         $valData["starting_date"] = date("Y-m-d") . " " . date("H:i:s");
         $valData["user_id"] = Auth::id();
-        $imagePath = Storage::put("uploads", $valData["image"]);
-        $valData["image"] = $imagePath;
+        if($request->hasFile("image")) {
+            $imagePath = Storage::put("uploads", $valData["image"]);
+            $valData["image"] = $imagePath;
+        }
         $newProject = Project::create($valData);
         if($request["technologies"]) {
             $newProject->technologies()->attach($valData["technologies"]);
@@ -104,6 +106,13 @@ class ProjectController extends Controller
             return to_route("admin.projects.edit", $project)->with("message", "Please use a name that is unique, without considering punctuation");
         }
         $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
+        if($request->hasFile("image")) {
+            if($project->image) {
+                Storage::delete($project->image);
+            }
+            $imagePath = Storage::put("uploads", $valData["image"]);
+            $valData["image"] = $imagePath;
+        }
         $project->update($valData);
         if($request["technologies"]) {
             $project->technologies()->sync($valData["technologies"]);
@@ -121,6 +130,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if($project->image) {
+            Storage::delete($project->image);
+        }
         $project->delete();
         return to_route("admin.projects.index")->with("message", "Project successfully deleted");
     }
