@@ -18,7 +18,7 @@
 @endforeach
 @endif
 
-<form action="{{ route('admin.projects.store') }}" method="post">
+<form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
   @csrf
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
@@ -33,7 +33,14 @@
     <small>
       <span class="text_custom_green">If you leave it blank, will be generated a URL like "https://github.com/yourusername/your-project-name"</span>
     </small>
-    @error('name')
+    @error('repositoryUrl')
+    <small class="text-danger">Please, fill the field correctly.</small>
+    @enderror
+  </div>
+  <div class="mb-3">
+    <label for="image" class="form-label">Image</label>
+    <input type="file" name="image" id="image" class="form-control" placeholder="Project image" aria-describedby="imageHelper">
+    @error('image')
     <small class="text-danger">Please, fill the field correctly.</small>
     @enderror
   </div>

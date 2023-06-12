@@ -18,7 +18,7 @@
 @endforeach
 @endif
 
-<form action="{{ route('admin.projects.update', $project) }}" method="post">
+<form action="{{ route('admin.projects.update', $project) }}" method="post" enctype="multipart/form-data">
   @csrf
   @method("put")
   <div class="mb-3">
@@ -26,6 +26,16 @@
     <input type="text" name="name" id="name" value="{{ old('name', $project->name) }}" class="form-control @error('name') is-invalid @enderror" placeholder="Project name">
     @error('name')
     <small class="text-danger">Please, fill the field correctly</small>
+    @enderror
+  </div>
+  <div class="mb-3">
+    <label for="repositoryUrl" class="form-label">Repository URL</label>
+    <input type="text" name="repositoryUrl" id="repositoryUrl" value="{{ old('repositoryUrl', $project->repositoryUrl) }}" class="form-control @error('repositoryUrl') is-invalid @enderror" placeholder="Project repository URL">
+    <small>
+      <span class="text_custom_green">If you leave it blank, will be generated a URL like "https://github.com/yourusername/your-project-name"</span>
+    </small>
+    @error('repositoryUrl')
+    <small class="text-danger">Please, fill the field correctly.</small>
     @enderror
   </div>
   <div class="mb-3">
