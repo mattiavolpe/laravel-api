@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
 
 class ProjectSeeder extends Seeder
 {
@@ -14,15 +13,19 @@ class ProjectSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        for ($i=0; $i < 10; $i++) { 
-            $project = new Project();
-            $project->name = $faker->sentence();
-            $project->slug = Project::generateSlug($project->name);
-            $project->repositoryUrl = Project::generateRepositoryUrl($project->slug);
-            $project->starting_date = date("Y-m-d") . " " . date("H:i:s");
-            $project->save();
+        $projects = config("db.projects");
+        foreach ($projects as $project) {
+            $newProject = new Project();
+            $newProject->id = $project["id"];
+            $newProject->user_id = $project["user_id"];
+            $newProject->type_id = $project["type_id"];
+            $newProject->name = $project["name"];
+            $newProject->slug = Project::generateSlug($newProject->name);
+            $newProject->repositoryUrl = $project["repositoryUrl"];
+            $newProject->starting_date = $project["starting_date"];
+            $newProject->save();
         }
     }
 }
