@@ -22,6 +22,7 @@ class TypeSeeder extends Seeder
             $newType = new Type();
             $newType->name = $type;
             $newType->slug = Str::slug($newType->name);
+            $newType->user_id = 1;
             $newType->save();
         }
     }
