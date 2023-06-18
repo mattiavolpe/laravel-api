@@ -17,6 +17,7 @@
       <tr class="align-middle">
         <th scope="col">ID</th>
         <th scope="col">Name</th>
+        <th scope="col">Logo</th>
         <th scope="col">Projects</th>
         <th scope="col">Actions</th>
       </tr>
@@ -26,6 +27,9 @@
       <tr>
         <td scope="row" class="text-white">{{ $technology->id }}</td>
         <td scope="row" class="text-white">{{ $technology->name }}</td>
+        <td scope="row" class="text-white">
+          <img style="object-fit: contain" width="50" height="50" src="{{ asset('storage/' . $technology->logo) }}" alt="{{ $technology->name }} logo">
+        </td>
         <th scope="row" class="text-white">{{count($technology->projects)}}</th>
         <td scope="row">
           <a class="show_button text-decoration-none btn" href="{{ route('admin.technologies.show', $technology) }}">
