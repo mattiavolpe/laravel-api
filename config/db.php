@@ -71,6 +71,45 @@
       "Front End", "Back End", "Full Stack"
     ],
     "technologies" => [
-      "HTML", "CSS", "JavaScript", "VueJS", "Vite", "PHP", "MySQL", "Laravel", "SCSS", "Bootstrap"
+      [
+        "name" => "HTML",
+        "logo" => "uploads/html.svg",
+      ],
+      [
+        "name" => "CSS",
+        "logo" => "uploads/css.svg",
+      ],
+      [
+        "name" => "JavaScript",
+        "logo" => "uploads/javascript.svg",
+      ],
+      [
+        "name" => "VueJS",
+        "logo" => "uploads/vue.svg",
+      ],
+      [
+        "name" => "Vite",
+        "logo" => "uploads/vite.svg",
+      ],
+      [
+        "name" => "PHP",
+        "logo" => "uploads/php.svg",
+      ],
+      [
+        "name" => "MySQL",
+        "logo" => "uploads/mysql.svg",
+      ],
+      [
+        "name" => "Laravel",
+        "logo" => "uploads/laravel.svg",
+      ],
+      [
+        "name" => "SCSS",
+        "logo" => "uploads/sass.svg",
+      ],
+      [
+        "name" => "Bootstrap",
+        "logo" => "uploads/bootstrap.svg",
+      ],
     ]
   ];

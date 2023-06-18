@@ -19,8 +19,9 @@ class TechnologySeeder extends Seeder
         $technologies = config("db.technologies");
         foreach ($technologies as $technology) {
             $newTechnology = new Technology();
-            $newTechnology->name = $technology;
-            $newTechnology->slug = Str::slug($technology, "-");
+            $newTechnology->name = $technology["name"];
+            $newTechnology->slug = Str::slug($newTechnology->name, "-");
+            $newTechnology->logo = $technology["logo"];
             $newTechnology->user_id = 1;
             $newTechnology->save();
         }
