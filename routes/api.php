@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\ProjectController;
 use App\Http\Controllers\API\TechnologyController;
+use App\Http\Controllers\API\ContactController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,5 @@ Route::get("/projects/{slug}", [ProjectController::class, "show"]);
 Route::get("/latestProjects", [ProjectController::class, "latest"]);
 
 Route::get("/technologies", [TechnologyController::class, "index"]);
+
+Route::post("/contact", [ContactController::class, "store"]);
