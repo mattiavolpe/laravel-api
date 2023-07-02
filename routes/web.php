@@ -22,7 +22,11 @@ use App\Models\User;
 
 Route::get('/', function () {
     $mainUser = User::find(1);
-    $projects = $mainUser->projects()->orderByDesc('id')->get();
+    if($mainUser != null) {
+        $projects = $mainUser->projects()->orderByDesc('id')->get();
+    } else {
+        $projects = [];
+    }
     return view('home', compact("projects"));
 })->name('home');
 
