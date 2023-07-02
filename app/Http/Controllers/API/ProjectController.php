@@ -32,9 +32,6 @@ class ProjectController extends Controller
     public function latest() {
         $allProjects = Project::with(["technologies", "type", "user"])->orderByDesc("starting_date")->limit(3)->get();
         $projects = $allProjects->reverse();
-        // for($i = 2; $i > 0; $i--) {
-        //     array_push($projects, $allProjects[$i]);
-        // }
         return response()->json([
             "success" => true,
             "projects" => $projects
