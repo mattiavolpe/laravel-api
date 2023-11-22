@@ -9,6 +9,7 @@
         "name" => "Dropbox",
         "repositoryUrl" => "https://github.com/mattiavolpe/htmlcss-dropbox",
         "starting_date" => "2023-02-17 15:00:00",
+        "image" => "uploads/ukEzzHep4qxgtLnPAUisqVi3G3uOrGqVXp9UGgNn.png",
       ],
       [
         "id" => 2,
@@ -17,6 +18,7 @@
         "name" => "Spotify",
         "repositoryUrl" => "https://github.com/mattiavolpe/html-css-spotifyweb",
         "starting_date" => "2023-02-23 15:00:00",
+        "image" => "uploads/c0QCQZa2HW2gslQaNzj0ZSeAcUxqHiBkNbBpUON7.png",
       ],
       [
         "id" => 3,
@@ -25,6 +27,7 @@
         "name" => "Bootstrap Dashboard",
         "repositoryUrl" => "https://github.com/mattiavolpe/html-css-bootstrap-dashboard",
         "starting_date" => "2023-03-02 15:00:00",
+        "image" => "uploads/FhmCAx3TyOGXw9NmN3NRNDPS2orBDpDwr9lnSHbZ.png",
       ],
       [
         "id" => 4,
@@ -33,6 +36,7 @@
         "name" => "Campominato",
         "repositoryUrl" => "https://github.com/mattiavolpe/campominato-personal",
         "starting_date" => "2023-03-23 15:00:00",
+        "image" => "uploads/mEn9RZcfZe7Jm1AM2pIfIG9rYRPTzpQ3PbbU7hzd.png",
       ],
       [
         "id" => 5,
@@ -41,6 +45,7 @@
         "name" => "Boolzapp",
         "repositoryUrl" => "https://github.com/mattiavolpe/vue-boolzapp",
         "starting_date" => "2023-04-11 15:00:00",
+        "image" => "uploads/Ca1Hn2JMmCfKcTvZyGnnYCa3qZsLeABUXvILnPhB.png",
       ],
       [
         "id" => 6,
@@ -49,6 +54,7 @@
         "name" => "Boolflix",
         "repositoryUrl" => "https://github.com/mattiavolpe/vite-boolflix",
         "starting_date" => "2023-04-21 15:00:00",
+        "image" => "uploads/XszNRFyLZQJbW5vkzQ5RV9nWLOk1X0R9VwOkNzN6.png",
       ],
       [
         "id" => 7,
@@ -57,14 +63,7 @@
         "name" => "DC Comics",
         "repositoryUrl" => "https://github.com/mattiavolpe/laravel-dc-comics",
         "starting_date" => "2023-06-01 15:00:00",
-      ],
-      [
-        "id" => 8,
-        "user_id" => 1,
-        "type_id" => 3,
-        "name" => "Laravel",
-        "repositoryUrl" => "https://github.com/mattiavolpe/laravel-many-to-many",
-        "starting_date" => "2023-06-06 15:00:00",
+        "image" => "uploads/zMmipKyVFniKDP4Yh0rN6WUOALdNriQjPLSqC4LP.png",
       ],
     ],
     "types" => [
