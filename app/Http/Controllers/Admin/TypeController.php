@@ -44,6 +44,7 @@ class TypeController extends Controller
         if(count(Type::where('slug', $valData["slug"])->get()->toArray()) > 0) {
             return to_route("admin.types.create")->with("message", "Please use a name that is unique, without considering punctuation");
         }
+        $valData["user_id"] = Auth::user()->id;
         Type::create($valData);
         return to_route("admin.types.index")->with("message", "Type successfully inserted");
     }

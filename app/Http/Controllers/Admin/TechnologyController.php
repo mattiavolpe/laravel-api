@@ -44,6 +44,7 @@ class TechnologyController extends Controller
         if(count(Technology::where('slug', $valData["slug"])->get()->toArray()) > 0) {
             return to_route("admin.technologies.create")->with("message", "Please use a name that is unique, without considering punctuation");
         }
+        $valData["user_id"] = Auth::user()->id;
         Technology::create($valData);
         return to_route("admin.technologies.index")->with("message", "Technology successfully inserted");
     }
