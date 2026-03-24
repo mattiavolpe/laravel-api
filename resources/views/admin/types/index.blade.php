@@ -26,7 +26,7 @@
       <tr>
         <td scope="row" class="text-white">{{ $type->id }}</td>
         <td scope="row" class="text-white">{{ $type->name }}</td>
-        <th scope="row" class="text-white">{{count($type->projects)}}</th>
+        <th scope="row" class="text-white">{{ $type->projects_count }}</th>
         <td scope="row">
           <a class="show_button text-decoration-none btn" href="{{ route('admin.types.show', $type) }}">
             <i class="fa-regular fa-eye fa-fw"></i>

@@ -30,7 +30,7 @@
         <td scope="row" class="text-white">
           <img style="object-fit: contain" width="50" height="50" src="{{ asset('storage/' . $technology->logo) }}" alt="{{ $technology->name }} logo">
         </td>
-        <th scope="row" class="text-white">{{count($technology->projects)}}</th>
+        <th scope="row" class="text-white">{{ $technology->projects_count }}</th>
         <td scope="row">
           <a class="show_button text-decoration-none btn" href="{{ route('admin.technologies.show', $technology) }}">
             <i class="fa-regular fa-eye fa-fw"></i>
