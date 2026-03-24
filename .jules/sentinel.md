@@ -1,0 +1,4 @@
+## 2024-05-24 - [IDOR in Admin Dashboard]
+**Vulnerability:** Insecure Direct Object Reference (IDOR) on Project resources. The `show`, `edit`, `update`, and `destroy` routes in `app/Http/Controllers/Admin/ProjectController.php` allowed any authenticated user to access or modify any project by guessing its ID/slug.
+**Learning:** Even within an `/admin` prefix and `auth` middleware, resource controllers must explicitly verify that the loaded model belongs to the currently authenticated user unless the user has global admin privileges.
+**Prevention:** Always verify ownership (`$model->user_id === Auth::id()`) or use Laravel Policies (`$this->authorize('view', $model)`) before returning or modifying resources in controllers.
