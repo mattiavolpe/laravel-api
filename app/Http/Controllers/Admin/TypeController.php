@@ -57,6 +57,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
+        abort_if($type->user_id !== Auth::id(), 403, 'Unauthorized access to type.');
         return view("admin.types.show", compact("type"));
     }
 
@@ -68,6 +69,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
+        abort_if($type->user_id !== Auth::id(), 403, 'Unauthorized access to type.');
         return view("admin.types.edit", compact("type"));
     }
 
@@ -80,6 +82,7 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
+        abort_if($type->user_id !== Auth::id(), 403, 'Unauthorized access to type.');
         $valData = $request->validated();
         $valData["slug"] = Type::generateSlug($valData["name"]);
         if(count(Type::where('slug', $valData["slug"])->get()->toArray()) > 1) {
@@ -97,6 +100,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
+        abort_if($type->user_id !== Auth::id(), 403, 'Unauthorized access to type.');
         $type->delete();
         return to_route("admin.types.index")->with("message", "Type successfully deleted");
     }
