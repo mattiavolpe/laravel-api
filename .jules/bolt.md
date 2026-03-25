@@ -1,0 +1,3 @@
+## 2024-05-24 - [Add index to projects.starting_date]
+**Learning:** The application frequently queries the `projects` table ordered by `starting_date` descending (e.g., in `ProjectController::index` and `ProjectController::latest`). However, there was no index on this column.
+**Action:** Always check for missing indexes on columns that are frequently used in `ORDER BY` or `WHERE` clauses, especially in paginated or limited queries.
