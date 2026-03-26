@@ -18,7 +18,12 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'emailAddress' => 'required|string|email|max:255',
+            'emailContent' => 'required|string|max:5000',
+        ]);
+
         $newContact = new Contact();
         $newContact->fill($data);
         // $newContact->save();
