@@ -41,7 +41,8 @@ class TechnologyController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Technology::generateSlug($valData["name"]);
-        if(count(Technology::where('slug', $valData["slug"])->get()->toArray()) > 0) {
+        // ⚡ Bolt: Check existence directly in database
+        if(Technology::where('slug', $valData["slug"])->exists()) {
             return to_route("admin.technologies.create")->with("message", "Please use a name that is unique, without considering punctuation");
         }
         $valData["user_id"] = Auth::user()->id;
@@ -82,7 +83,8 @@ class TechnologyController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Technology::generateSlug($valData["name"]);
-        if(count(Technology::where('slug', $valData["slug"])->get()->toArray()) > 1) {
+        // ⚡ Bolt: Efficiently check slug existence during update
+        if(Technology::where('slug', $valData["slug"])->where('id', '!=', $technology->id)->exists()) {
             return to_route("admin.technologies.edit", $technology)->with("message", "Please use a name that is unique, without considering punctuation");
         }
         $technology->update($valData);
