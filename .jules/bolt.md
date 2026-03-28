@@ -1,0 +1,3 @@
+## 2024-05-18 - [Optimize unnecessary database lookups during slug validation]
+**Learning:** Checking for model existence by querying the full collection using `count(Model::where('slug', $slug)->get()->toArray())` is a critical performance anti-pattern. This fetches all matching records from the database, converts them to Eloquent collections, and then to arrays, just to check if the count is greater than 0 or 1.
+**Action:** Always replace `count($query->get()->toArray()) > 0` with `$query->exists()` and `count($query->get()->toArray()) > 1` with `$query->count() > 1` for drastically improved performance and reduced memory footprint.
