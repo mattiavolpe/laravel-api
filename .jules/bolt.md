@@ -1,0 +1,3 @@
+## 2024-03-29 - [Optimize counting of eloquent collections]
+**Learning:** Using `count(Model::where(...)->get()->toArray())` or `Model::where(...)->get()->count()` fetches all the matching rows from the database into PHP memory just to count them. For large datasets, this can lead to memory exhaustion and severe performance degradation.
+**Action:** Always use database-level aggregations like `Model::where(...)->count()` to return just the count as an integer, or `Model::where(...)->exists()` if you only need to know if at least one row matches. This pushes the computation to the database where it's much more efficient.
