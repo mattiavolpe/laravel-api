@@ -57,6 +57,10 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
+        if ($type->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         return view("admin.types.show", compact("type"));
     }
 
@@ -68,6 +72,10 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
+        if ($type->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         return view("admin.types.edit", compact("type"));
     }
 
@@ -80,6 +88,10 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
+        if ($type->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $valData = $request->validated();
         $valData["slug"] = Type::generateSlug($valData["name"]);
         if(count(Type::where('slug', $valData["slug"])->get()->toArray()) > 1) {
@@ -97,6 +109,10 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
+        if ($type->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $type->delete();
         return to_route("admin.types.index")->with("message", "Type successfully deleted");
     }

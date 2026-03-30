@@ -75,6 +75,10 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        if ($project->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         return view("admin.projects.show", compact("project"));
     }
 
@@ -86,6 +90,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        if ($project->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $types = Type::orderBy('name')->get();
         $technologies = Technology::orderBy('name')->get();
         return view("admin.projects.edit", compact("project", "types", "technologies"));
@@ -100,6 +108,10 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+        if ($project->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $valData = $request->validated();
         $valData["slug"] = Project::generateSlug($valData["name"]);
         if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 1) {
@@ -134,6 +146,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         if($project->image) {
             Storage::delete($project->image);
         }
