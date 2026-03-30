@@ -1,0 +1,3 @@
+## 2024-03-30 - [Avoid Loading Entire Relationships into Memory for Aggregates]
+**Learning:** In the DashboardController, the application was loading all user projects into memory (`Auth::user()->projects()->orderByDesc("id")->get()`) just to get the total count, the newest project, and the oldest project. This results in unnecessary memory usage and processing time, particularly when a user has a large number of projects.
+**Action:** Use database-level operations (`count()`, `latest()->first()`, `oldest()->first()`) to fetch exactly the required data without hydrating an entire Eloquent Collection. This significantly reduces memory overhead and improves performance.
