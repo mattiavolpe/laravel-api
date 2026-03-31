@@ -1,0 +1,3 @@
+## 2024-03-22 - [Laravel Eloquent Memory Loading Optimization]
+**Learning:** Loading entire relationships via `->get()` just to retrieve a count and the first/last items loads all records into PHP memory, causing OOM (Out Of Memory) issues on large datasets. Additionally, chaining aggregate methods like `->count()` on a base relation instance alters the query instance, requiring the use of `clone` to perform subsequent queries.
+**Action:** Always use database-level aggregates like `->count()` and conditional `->first()` and ensure the base query is cloned `(clone $query)` for repeated manipulations.
