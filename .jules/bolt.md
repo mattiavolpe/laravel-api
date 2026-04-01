@@ -1,0 +1,3 @@
+## 2024-05-18 - Database Aggegrates over Collection Aggregates
+**Learning:** Calling `->get()` on relationships (e.g., `Auth::user()->projects()->get()`) loads all records into memory as a Collection. For users with large amounts of data, using Collection methods like `count()` or array access (e.g. `$projects[0]`) scales poorly and can quickly saturate application memory leading to slow load times or crashes.
+**Action:** Always prefer database-level aggregations (`->count()`, `->latest()->first()`, `->oldest()->first()`) directly on the relationship query builder. This offloads the work to the database and transfers only the required data (scalar values or single records) to the application.
