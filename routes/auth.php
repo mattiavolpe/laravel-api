@@ -47,6 +47,11 @@ Route::middleware('auth')->group(function () {
                 ->middleware('throttle:6,1')
                 ->name('verification.send');
 
+    // Fixing missing verification.resend alias for EmailVerificationNotificationController since Breeze tests rely on it
+    Route::post('email/verification-resend', [EmailVerificationNotificationController::class, 'store'])
+                ->middleware('throttle:6,1')
+                ->name('verification.resend');
+
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
                 ->name('password.confirm');
 
