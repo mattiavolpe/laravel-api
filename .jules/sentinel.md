@@ -1,0 +1,4 @@
+## 2024-05-24 - [IDOR in Admin Controllers]
+**Vulnerability:** Admin controllers (Project, Technology, Type) lack authorization checks for view/edit/update/delete operations, relying solely on implicit route model binding. This allows any authenticated user to access and manipulate resources belonging to other users by changing the ID/slug in the URL.
+**Learning:** This codebase relies on controllers to enforce resource ownership rather than using Laravel Policies. Therefore, when dealing with implicitly bound models, manual ownership checks (e.g., `if ($model->user_id !== Auth::id()) abort(403);`) must be explicitly implemented in every relevant controller method.
+**Prevention:** Always verify resource ownership when fetching or acting upon models passed via route model binding. Consider implementing Laravel Policies for a more centralized authorization approach.

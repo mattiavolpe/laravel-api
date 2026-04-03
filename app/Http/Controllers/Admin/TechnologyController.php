@@ -57,6 +57,7 @@ class TechnologyController extends Controller
      */
     public function show(Technology $technology)
     {
+        if ($technology->user_id !== Auth::id()) abort(403);
         return view("admin.technologies.show", compact("technology"));
     }
 
@@ -68,6 +69,7 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
+        if ($technology->user_id !== Auth::id()) abort(403);
         return view("admin.technologies.edit", compact("technology"));
     }
 
@@ -80,6 +82,7 @@ class TechnologyController extends Controller
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
+        if ($technology->user_id !== Auth::id()) abort(403);
         $valData = $request->validated();
         $valData["slug"] = Technology::generateSlug($valData["name"]);
         if(count(Technology::where('slug', $valData["slug"])->get()->toArray()) > 1) {
