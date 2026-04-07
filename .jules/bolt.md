@@ -1,0 +1,3 @@
+## 2024-05-18 - Database Record Existence Checks
+**Learning:** Found multiple instances of checking for record existence or uniqueness by fetching the entire result set into memory (`count(Model::where(...)->get()->toArray()) > 0`). This is a huge performance bottleneck as the data set grows, loading unnecessary objects and arrays into PHP memory.
+**Action:** Always use database-level methods `->exists()` and `->count()` directly on the query builder. `Model::where(...)->exists()` is exponentially faster for checking existence, and `Model::where(...)->count()` is faster for checking the number of matching rows without loading them.
