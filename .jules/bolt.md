@@ -1,0 +1,3 @@
+## 2024-03-20 - [Avoid Loading All Records into Memory for Counting]
+**Learning:** Checking for model existence or counting models using `count(Model::where(...)->get()->toArray())` is a critical performance bottleneck because it inefficiently loads all matching records from the database into PHP memory just to determine a count. This can lead to excessive memory consumption and slow response times, particularly for large datasets.
+**Action:** Always prefer using database-level operations for these tasks. Use `Model::where(...)->exists()` to check if any records match the condition, and use `Model::where(...)->count()` to get the number of matching records directly from the database query engine.
