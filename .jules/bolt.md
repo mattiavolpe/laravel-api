@@ -1,0 +1,3 @@
+## 2025-04-11 - Replace Memory-Heavy Object Counting with Database Aggregation
+**Learning:** Checking for row existence or count by executing `$model::where(...)->get()->toArray()` loads all matching database records into PHP memory as Eloquent objects, then converts them to arrays, only to count the array length. This scales extremely poorly (O(N) memory complexity).
+**Action:** Always prefer the query builder's native database aggregation methods: use `->exists()` when you only care if >0 records exist, and `->count()` when you need the exact number. This executes a fast `COUNT(*)` query or `LIMIT 1` query at the database level with minimal memory overhead.
