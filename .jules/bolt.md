@@ -1,0 +1,3 @@
+## 2026-04-14 - Replace array count of collection with DB-level exists/count queries
+**Learning:** Found a specific anti-pattern in the codebase where developers were using `count(Model::where(...)->get()->toArray())` just to check if records exist or to count them. This is extremely inefficient as it executes a `SELECT *` query and loads all resulting records into PHP memory as objects, only to cast them to an array and count them. This can cause severe memory usage and slower execution times for tables with many rows.
+**Action:** Always use database-level aggregations directly on the Query Builder. Use `->exists()` if you only need to check for presence (> 0), or `->count()` if you need the exact number.
