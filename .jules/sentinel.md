@@ -1,0 +1,4 @@
+## 2024-04-19 - Insecure Direct Object Reference (IDOR) via Implicit Route Model Binding
+**Vulnerability:** IDOR vulnerabilities in admin controllers (`ProjectController`, `TypeController`, `TechnologyController`) where users could access, edit, update, or delete resources owned by other users.
+**Learning:** Implicit route model binding automatically resolves eloquent models based on route parameters, bypassing authorization unless explicitly defined. In a multi-tenant application where resources belong to specific users (e.g., via `user_id`), implicit binding alone is insecure.
+**Prevention:** Always implement explicit authorization checks (e.g., `if ($model->user_id != auth()->id()) abort(403);`) or use Laravel Policies when utilizing implicit route model binding for user-owned resources.
