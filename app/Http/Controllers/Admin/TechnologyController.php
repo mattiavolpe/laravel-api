@@ -57,6 +57,8 @@ class TechnologyController extends Controller
      */
     public function show(Technology $technology)
     {
+        // Add explicit ownership check
+        if ($technology->user_id != auth()->id()) abort(403);
         return view("admin.technologies.show", compact("technology"));
     }
 
@@ -68,6 +70,8 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
+        // Add explicit ownership check
+        if ($technology->user_id != auth()->id()) abort(403);
         return view("admin.technologies.edit", compact("technology"));
     }
 
@@ -80,6 +84,8 @@ class TechnologyController extends Controller
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
+        // Add explicit ownership check
+        if ($technology->user_id != auth()->id()) abort(403);
         $valData = $request->validated();
         $valData["slug"] = Technology::generateSlug($valData["name"]);
         if(count(Technology::where('slug', $valData["slug"])->get()->toArray()) > 1) {
@@ -97,6 +103,8 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
+        // Add explicit ownership check
+        if ($technology->user_id != auth()->id()) abort(403);
         $technology->delete();
         return to_route("admin.technologies.index")->with("message", "Technology successfully deleted");
     }
