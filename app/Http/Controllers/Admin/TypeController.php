@@ -57,6 +57,8 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
+        // Add explicit ownership check
+        if ($type->user_id != auth()->id()) abort(403);
         return view("admin.types.show", compact("type"));
     }
 
@@ -68,6 +70,8 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
+        // Add explicit ownership check
+        if ($type->user_id != auth()->id()) abort(403);
         return view("admin.types.edit", compact("type"));
     }
 
@@ -80,6 +84,8 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
+        // Add explicit ownership check
+        if ($type->user_id != auth()->id()) abort(403);
         $valData = $request->validated();
         $valData["slug"] = Type::generateSlug($valData["name"]);
         if(count(Type::where('slug', $valData["slug"])->get()->toArray()) > 1) {
@@ -97,6 +103,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
+        // Add explicit ownership check
+        if ($type->user_id != auth()->id()) abort(403);
         $type->delete();
         return to_route("admin.types.index")->with("message", "Type successfully deleted");
     }
