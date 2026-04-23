@@ -1,0 +1,3 @@
+## 2024-04-23 - Inefficient Record Loading with Eloquent
+**Learning:** Using `count(Model::where(...)->get()->toArray())` to check for record existence or count matching records is highly inefficient because it loads all matching records into PHP memory as arrays, which can cause out-of-memory errors on large datasets.
+**Action:** Always use `->exists()` or `->count()` directly on the Eloquent query builder for fast, database-level execution without loading records into memory.
