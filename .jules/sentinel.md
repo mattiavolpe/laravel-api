@@ -1,0 +1,4 @@
+## 2024-05-15 - [IDOR in Implicit Route Model Binding]
+**Vulnerability:** Insecure Direct Object Reference (IDOR) allows authenticated users to access, modify, or delete other users' models (Projects, Types, Technologies) because Laravel's implicit route model binding resolves the model from the URL regardless of who owns it.
+**Learning:** When using implicit route model binding without explicit Laravel Policies, ownership checks are missing by default. A controller method must manually verify the relationship using loose comparison like `if ($model->user_id != auth()->id()) abort(403);` due to potential type mismatches (e.g. integer vs string).
+**Prevention:** Either implement and apply Laravel Policies or ensure every controller method resolving user-owned models explicitly verifies ownership against the authenticated user.
