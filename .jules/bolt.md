@@ -1,0 +1,3 @@
+## 2024-06-25 - Prevent Inefficient Query Execution Loading Entire Dataset to PHP Memory
+**Learning:** Found multiple instances where the existence of a database record was being checked by loading all matching records into PHP memory as an array using `count(Model::where(...)->get()->toArray()) > 0`. This is highly inefficient, loading potentially massive datasets into application memory and stalling the application just to check if records exist.
+**Action:** Replace `count(...->get()->toArray()) > 0` with Eloquent's `exists()` and `count(...->get()->toArray()) > 1` with Eloquent's `count() > 1`. These natively resolve to fast, SQL-level aggregate queries rather than loading data objects into PHP RAM.
