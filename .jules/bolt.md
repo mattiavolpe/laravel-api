@@ -1,0 +1,3 @@
+## 2024-06-25 - Eloquent memory optimization: Replacing get()->toArray() with count()/exists()
+**Learning:** Checking for record existence or counting records using `count(Model::where(...)->get()->toArray())` is a major performance anti-pattern. It forces Eloquent to execute the query, hydrate all result rows into model instances, convert them to arrays, load everything into PHP memory, and finally run a PHP `count()`. This scale poorly on large datasets and wastes memory and processing time.
+**Action:** Always use `->exists()` or `->count()` directly on the query builder. This translates to an optimized SQL query (e.g. `SELECT EXISTS(...)` or `SELECT COUNT(*)`) executed at the database level, drastically reducing PHP memory usage and processing time.
