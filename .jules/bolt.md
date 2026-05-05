@@ -1,0 +1,3 @@
+## 2024-05-05 - Optimize Eloquent existence checks
+**Learning:** Checking for record existence or counting records using `count(Model::where(...)->get()->toArray())` is highly inefficient because it queries all matching rows and loads them completely into PHP memory before counting them.
+**Action:** Always use database-level methods `->exists()` (when checking if > 0) or `->count()` directly on the query builder to prevent N+1 memory issues and reduce execution time.
