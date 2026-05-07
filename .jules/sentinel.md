@@ -1,0 +1,4 @@
+## 2024-05-07 - Fix Insecure Direct Object Reference (IDOR) vulnerability
+**Vulnerability:** Missing authorization checks in ProjectController, TypeController, and TechnologyController methods (show, edit, update, destroy), allowing users to access or modify resources owned by other users via direct object references.
+**Learning:** Laravel's implicit route model binding automatically resolves Eloquent models but does not check ownership unless explicitly programmed via Policies or direct authorization checks within the controller. Since `Type` and `Technology` models are user-owned entities in this application architecture, they are also vulnerable to IDOR.
+**Prevention:** Always implement explicit ownership checks (e.g., `$model->user_id != auth()->id()`) or use Laravel Policies when accessing user-owned resources via direct object references in controller methods.
