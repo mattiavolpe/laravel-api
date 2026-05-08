@@ -1,0 +1,3 @@
+## 2024-05-17 - Optimize Eloquent Aggregations
+**Learning:** The application occasionally loads entire relationship collections into PHP memory to perform aggregations (like counting or finding newest/oldest records) using `count($collection)` or `count(Model::where(...)->get()->toArray())` instead of utilizing efficient database-level query builder methods.
+**Action:** Always use database-level aggregations (`count()`, `first()`, `exists()`) directly on the query builder to prevent memory overhead and improve execution speed.
