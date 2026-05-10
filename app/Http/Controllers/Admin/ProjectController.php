@@ -75,6 +75,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        if ($project->user_id != auth()->id()) abort(403);
         return view("admin.projects.show", compact("project"));
     }
 
@@ -86,6 +87,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        if ($project->user_id != auth()->id()) abort(403);
         $types = Type::orderBy('name')->get();
         $technologies = Technology::orderBy('name')->get();
         return view("admin.projects.edit", compact("project", "types", "technologies"));
@@ -100,6 +102,7 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+        if ($project->user_id != auth()->id()) abort(403);
         $valData = $request->validated();
         $valData["slug"] = Project::generateSlug($valData["name"]);
         if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 1) {
@@ -134,6 +137,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->user_id != auth()->id()) abort(403);
         if($project->image) {
             Storage::delete($project->image);
         }
