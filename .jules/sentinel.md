@@ -1,0 +1,4 @@
+## 2024-05-11 - IDOR in Admin Controllers
+**Vulnerability:** Insecure Direct Object Reference (IDOR) vulnerabilities exist in the `ProjectController`, `TypeController`, and `TechnologyController` because implicit route model binding is used without ownership verification.
+**Learning:** The architectural pattern in this application relies on controller-level authorization for user-owned models (identified by the `$fillable` `user_id` property and the `user()` BelongsTo relationship). Without explicit checks, any authenticated user can view, edit, update, or delete records belonging to other users by guessing their IDs.
+**Prevention:** Always enforce explicit ownership checks (e.g., `if ($model->user_id != auth()->id()) abort(403);`) within controller methods handling specific model instances when Laravel Policies are not implemented.
