@@ -1,0 +1,3 @@
+## 2024-05-25 - Optimize Eloquent Collections
+**Learning:** The codebase previously loaded full collections into PHP memory using `count(Model::where(...)->get()->toArray())` to check for existence, which is a major memory bottleneck. Furthermore, chaining relationship methods and subsequently running `get()` and taking specific array indices unnecessarily loads all related records into memory.
+**Action:** Use database-level aggregations (`->exists()`, `->count()`) for existence checks, and `->first()` with explicit query ordering to retrieve specific edge records, significantly reducing application memory footprint.
