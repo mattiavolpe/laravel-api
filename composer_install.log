@@ -1,0 +1,266 @@
+Installing dependencies from lock file (including require-dev)
+Verifying lock file contents can be installed on current platform.
+Package operations: 112 installs, 0 updates, 0 removals
+  - Downloading doctrine/inflector (2.0.6)
+  - Downloading doctrine/lexer (3.0.0)
+  - Downloading symfony/polyfill-ctype (v1.27.0)
+  - Downloading webmozart/assert (1.11.0)
+  - Downloading dragonmantank/cron-expression (v3.3.2)
+  - Downloading symfony/deprecation-contracts (v3.3.0)
+  - Downloading psr/container (2.0.2)
+  - Downloading fakerphp/faker (v1.22.0)
+  - Downloading symfony/polyfill-php80 (v1.27.0)
+  - Downloading symfony/polyfill-php83 (v1.27.0)
+  - Downloading symfony/polyfill-mbstring (v1.27.0)
+  - Downloading symfony/http-foundation (v6.3.0)
+  - Downloading fruitcake/php-cors (v1.2.0)
+  - Downloading psr/http-message (2.0)
+  - Downloading psr/http-client (1.0.2)
+  - Downloading ralouphie/getallheaders (3.0.3)
+  - Downloading psr/http-factory (1.0.2)
+  - Downloading guzzlehttp/psr7 (2.5.0)
+  - Downloading guzzlehttp/promises (2.0.0)
+  - Downloading guzzlehttp/guzzle (7.7.0)
+  - Downloading guzzlehttp/uri-template (v1.0.1)
+  - Downloading voku/portable-ascii (2.0.1)
+  - Downloading phpoption/phpoption (1.9.1)
+  - Downloading graham-campbell/result-type (v1.1.1)
+  - Downloading vlucas/phpdotenv (v5.5.0)
+  - Downloading symfony/css-selector (v6.3.0)
+  - Downloading tijsverkoyen/css-to-inline-styles (2.2.6)
+  - Downloading symfony/var-dumper (v6.3.0)
+  - Downloading symfony/polyfill-uuid (v1.27.0)
+  - Downloading symfony/uid (v6.3.0)
+  - Downloading symfony/routing (v6.3.0)
+  - Downloading symfony/process (v6.3.0)
+  - Downloading symfony/polyfill-php72 (v1.27.0)
+  - Downloading symfony/polyfill-intl-normalizer (v1.27.0)
+  - Downloading symfony/polyfill-intl-idn (v1.27.0)
+  - Downloading symfony/mime (v6.3.0)
+  - Downloading symfony/service-contracts (v3.3.0)
+  - Downloading psr/event-dispatcher (1.0.0)
+  - Downloading symfony/event-dispatcher-contracts (v3.3.0)
+  - Downloading symfony/event-dispatcher (v6.3.0)
+  - Downloading psr/log (3.0.0)
+  - Downloading egulias/email-validator (4.0.1)
+  - Downloading symfony/mailer (v6.3.0)
+  - Downloading symfony/error-handler (v6.3.0)
+  - Downloading symfony/http-kernel (v6.3.0)
+  - Downloading symfony/finder (v6.3.0)
+  - Downloading symfony/polyfill-intl-grapheme (v1.27.0)
+  - Downloading symfony/string (v6.3.0)
+  - Downloading symfony/console (v6.3.0)
+  - Downloading ramsey/collection (2.0.0)
+  - Downloading brick/math (0.11.0)
+  - Downloading ramsey/uuid (4.7.4)
+  - Downloading psr/simple-cache (3.0.0)
+  - Downloading nunomaduro/termwind (v1.15.1)
+  - Downloading symfony/translation-contracts (v3.3.0)
+  - Downloading symfony/translation (v6.3.0)
+  - Downloading nesbot/carbon (2.67.0)
+  - Downloading monolog/monolog (2.9.1)
+  - Downloading league/mime-type-detection (1.11.0)
+  - Downloading league/flysystem (3.15.1)
+  - Downloading league/flysystem-local (3.15.0)
+  - Downloading nette/utils (v4.0.0)
+  - Downloading nette/schema (v1.2.3)
+  - Downloading dflydev/dot-access-data (v3.0.2)
+  - Downloading league/config (v1.2.0)
+  - Downloading league/commonmark (2.4.0)
+  - Downloading laravel/serializable-closure (v1.3.0)
+  - Downloading laravel/framework (v9.52.8)
+  - Downloading laravel/breeze (v1.19.2)
+  - Downloading laravel/pint (v1.10.0)
+  - Downloading symfony/yaml (v6.3.0)
+  - Downloading laravel/sail (v1.22.0)
+  - Downloading laravel/sanctum (v3.2.5)
+  - Downloading nikic/php-parser (v4.15.5)
+  - Downloading psy/psysh (v0.11.18)
+  - Downloading laravel/tinker (v2.8.1)
+  - Downloading hamcrest/hamcrest-php (v2.0.1)
+  - Downloading mockery/mockery (1.6.0)
+  - Downloading filp/whoops (2.15.2)
+  - Downloading nunomaduro/collision (v6.4.0)
+  - Downloading pacificdev/laravel_9_preset (1.1.1)
+  - Downloading sebastian/version (3.0.2)
+  - Downloading sebastian/type (3.2.1)
+  - Downloading sebastian/resource-operations (3.0.3)
+  - Downloading sebastian/recursion-context (4.0.5)
+  - Downloading sebastian/object-reflector (2.0.4)
+  - Downloading sebastian/object-enumerator (4.0.4)
+  - Downloading sebastian/global-state (5.0.5)
+  - Downloading sebastian/exporter (4.0.5)
+  - Downloading sebastian/environment (5.1.5)
+  - Downloading sebastian/diff (4.0.5)
+  - Downloading sebastian/comparator (4.0.8)
+  - Downloading sebastian/code-unit (1.0.8)
+  - Downloading sebastian/cli-parser (1.0.1)
+  - Downloading phpunit/php-timer (5.0.3)
+  - Downloading phpunit/php-text-template (2.0.4)
+  - Downloading phpunit/php-invoker (3.1.1)
+  - Downloading phpunit/php-file-iterator (3.0.6)
+  - Downloading theseer/tokenizer (1.2.1)
+  - Downloading sebastian/lines-of-code (1.0.3)
+  - Downloading sebastian/complexity (2.0.2)
+  - Downloading sebastian/code-unit-reverse-lookup (2.0.3)
+  - Downloading phpunit/php-code-coverage (9.2.26)
+  - Downloading phar-io/version (3.2.1)
+  - Downloading phar-io/manifest (2.0.3)
+  - Downloading myclabs/deep-copy (1.11.1)
+  - Downloading doctrine/instantiator (2.0.0)
+  - Downloading phpunit/phpunit (9.6.8)
+  - Downloading spatie/backtrace (1.4.0)
+  - Downloading spatie/flare-client-php (1.3.6)
+  - Downloading spatie/ignition (1.8.0)
+  - Downloading spatie/laravel-ignition (1.6.4)
+   0/112 [>---------------------------]   0%
+  15/112 [===>------------------------]  13%
+  24/112 [======>---------------------]  21%
+  40/112 [==========>-----------------]  35%
+  51/112 [============>---------------]  45%
+  57/112 [==============>-------------]  50%
+  71/112 [=================>----------]  63%
+  81/112 [====================>-------]  72%
+  92/112 [=======================>----]  82%
+ 107/112 [==========================>-]  95%
+ 112/112 [============================] 100%
+  - Installing doctrine/inflector (2.0.6): Extracting archive
+  - Installing doctrine/lexer (3.0.0): Extracting archive
+  - Installing symfony/polyfill-ctype (v1.27.0): Extracting archive
+  - Installing webmozart/assert (1.11.0): Extracting archive
+  - Installing dragonmantank/cron-expression (v3.3.2): Extracting archive
+  - Installing symfony/deprecation-contracts (v3.3.0): Extracting archive
+  - Installing psr/container (2.0.2): Extracting archive
+  - Installing fakerphp/faker (v1.22.0): Extracting archive
+  - Installing symfony/polyfill-php80 (v1.27.0): Extracting archive
+  - Installing symfony/polyfill-php83 (v1.27.0): Extracting archive
+  - Installing symfony/polyfill-mbstring (v1.27.0): Extracting archive
+  - Installing symfony/http-foundation (v6.3.0): Extracting archive
+  - Installing fruitcake/php-cors (v1.2.0): Extracting archive
+  - Installing psr/http-message (2.0): Extracting archive
+  - Installing psr/http-client (1.0.2): Extracting archive
+  - Installing ralouphie/getallheaders (3.0.3): Extracting archive
+  - Installing psr/http-factory (1.0.2): Extracting archive
+  - Installing guzzlehttp/psr7 (2.5.0): Extracting archive
+  - Installing guzzlehttp/promises (2.0.0): Extracting archive
+  - Installing guzzlehttp/guzzle (7.7.0): Extracting archive
+  - Installing guzzlehttp/uri-template (v1.0.1): Extracting archive
+  - Installing voku/portable-ascii (2.0.1): Extracting archive
+  - Installing phpoption/phpoption (1.9.1): Extracting archive
+  - Installing graham-campbell/result-type (v1.1.1): Extracting archive
+  - Installing vlucas/phpdotenv (v5.5.0): Extracting archive
+  - Installing symfony/css-selector (v6.3.0): Extracting archive
+  - Installing tijsverkoyen/css-to-inline-styles (2.2.6): Extracting archive
+  - Installing symfony/var-dumper (v6.3.0): Extracting archive
+  - Installing symfony/polyfill-uuid (v1.27.0): Extracting archive
+  - Installing symfony/uid (v6.3.0): Extracting archive
+  - Installing symfony/routing (v6.3.0): Extracting archive
+  - Installing symfony/process (v6.3.0): Extracting archive
+  - Installing symfony/polyfill-php72 (v1.27.0): Extracting archive
+  - Installing symfony/polyfill-intl-normalizer (v1.27.0): Extracting archive
+  - Installing symfony/polyfill-intl-idn (v1.27.0): Extracting archive
+  - Installing symfony/mime (v6.3.0): Extracting archive
+  - Installing symfony/service-contracts (v3.3.0): Extracting archive
+  - Installing psr/event-dispatcher (1.0.0): Extracting archive
+  - Installing symfony/event-dispatcher-contracts (v3.3.0): Extracting archive
+  - Installing symfony/event-dispatcher (v6.3.0): Extracting archive
+  - Installing psr/log (3.0.0): Extracting archive
+  - Installing egulias/email-validator (4.0.1): Extracting archive
+  - Installing symfony/mailer (v6.3.0): Extracting archive
+  - Installing symfony/error-handler (v6.3.0): Extracting archive
+  - Installing symfony/http-kernel (v6.3.0): Extracting archive
+  - Installing symfony/finder (v6.3.0): Extracting archive
+  - Installing symfony/polyfill-intl-grapheme (v1.27.0): Extracting archive
+  - Installing symfony/string (v6.3.0): Extracting archive
+  - Installing symfony/console (v6.3.0): Extracting archive
+  - Installing ramsey/collection (2.0.0): Extracting archive
+  - Installing brick/math (0.11.0): Extracting archive
+  - Installing ramsey/uuid (4.7.4): Extracting archive
+  - Installing psr/simple-cache (3.0.0): Extracting archive
+  - Installing nunomaduro/termwind (v1.15.1): Extracting archive
+  - Installing symfony/translation-contracts (v3.3.0): Extracting archive
+  - Installing symfony/translation (v6.3.0): Extracting archive
+  - Installing nesbot/carbon (2.67.0): Extracting archive
+  - Installing monolog/monolog (2.9.1): Extracting archive
+  - Installing league/mime-type-detection (1.11.0): Extracting archive
+  - Installing league/flysystem (3.15.1): Extracting archive
+  - Installing league/flysystem-local (3.15.0): Extracting archive
+  - Installing nette/utils (v4.0.0): Extracting archive
+  - Installing nette/schema (v1.2.3): Extracting archive
+  - Installing dflydev/dot-access-data (v3.0.2): Extracting archive
+  - Installing league/config (v1.2.0): Extracting archive
+  - Installing league/commonmark (2.4.0): Extracting archive
+  - Installing laravel/serializable-closure (v1.3.0): Extracting archive
+  - Installing laravel/framework (v9.52.8): Extracting archive
+  - Installing laravel/breeze (v1.19.2): Extracting archive
+  - Installing laravel/pint (v1.10.0): Extracting archive
+  - Installing symfony/yaml (v6.3.0): Extracting archive
+  - Installing laravel/sail (v1.22.0): Extracting archive
+  - Installing laravel/sanctum (v3.2.5): Extracting archive
+  - Installing nikic/php-parser (v4.15.5): Extracting archive
+  - Installing psy/psysh (v0.11.18): Extracting archive
+  - Installing laravel/tinker (v2.8.1): Extracting archive
+  - Installing hamcrest/hamcrest-php (v2.0.1): Extracting archive
+  - Installing mockery/mockery (1.6.0): Extracting archive
+  - Installing filp/whoops (2.15.2): Extracting archive
+  - Installing nunomaduro/collision (v6.4.0): Extracting archive
+  - Installing pacificdev/laravel_9_preset (1.1.1): Extracting archive
+  - Installing sebastian/version (3.0.2): Extracting archive
+  - Installing sebastian/type (3.2.1): Extracting archive
+  - Installing sebastian/resource-operations (3.0.3): Extracting archive
+  - Installing sebastian/recursion-context (4.0.5): Extracting archive
+  - Installing sebastian/object-reflector (2.0.4): Extracting archive
+  - Installing sebastian/object-enumerator (4.0.4): Extracting archive
+  - Installing sebastian/global-state (5.0.5): Extracting archive
+  - Installing sebastian/exporter (4.0.5): Extracting archive
+  - Installing sebastian/environment (5.1.5): Extracting archive
+  - Installing sebastian/diff (4.0.5): Extracting archive
+  - Installing sebastian/comparator (4.0.8): Extracting archive
+  - Installing sebastian/code-unit (1.0.8): Extracting archive
+  - Installing sebastian/cli-parser (1.0.1): Extracting archive
+  - Installing phpunit/php-timer (5.0.3): Extracting archive
+  - Installing phpunit/php-text-template (2.0.4): Extracting archive
+  - Installing phpunit/php-invoker (3.1.1): Extracting archive
+  - Installing phpunit/php-file-iterator (3.0.6): Extracting archive
+  - Installing theseer/tokenizer (1.2.1): Extracting archive
+  - Installing sebastian/lines-of-code (1.0.3): Extracting archive
+  - Installing sebastian/complexity (2.0.2): Extracting archive
+  - Installing sebastian/code-unit-reverse-lookup (2.0.3): Extracting archive
+  - Installing phpunit/php-code-coverage (9.2.26): Extracting archive
+  - Installing phar-io/version (3.2.1): Extracting archive
+  - Installing phar-io/manifest (2.0.3): Extracting archive
+  - Installing myclabs/deep-copy (1.11.1): Extracting archive
+  - Installing doctrine/instantiator (2.0.0): Extracting archive
+  - Installing phpunit/phpunit (9.6.8): Extracting archive
+  - Installing spatie/backtrace (1.4.0): Extracting archive
+  - Installing spatie/flare-client-php (1.3.6): Extracting archive
+  - Installing spatie/ignition (1.8.0): Extracting archive
+  - Installing spatie/laravel-ignition (1.6.4): Extracting archive
+   0/112 [>---------------------------]   0%
+  26/112 [======>---------------------]  23%
+  40/112 [==========>-----------------]  35%
+  51/112 [============>---------------]  45%
+  62/112 [===============>------------]  55%
+  74/112 [==================>---------]  66%
+  81/112 [====================>-------]  72%
+  90/112 [======================>-----]  80%
+ 107/112 [==========================>-]  95%
+ 112/112 [============================] 100%
+Generating optimized autoload files
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover --ansi
+
+  [37;44m INFO [39;49m Discovering packages.
+
+  laravel/breeze [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  laravel/sail [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  laravel/sanctum [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  laravel/tinker [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  nesbot/carbon [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  nunomaduro/collision [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  nunomaduro/termwind [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  pacificdev/laravel_9_preset [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+  spatie/laravel-ignition [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m [32;1mDONE[39;22m
+
+84 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
