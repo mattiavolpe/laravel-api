@@ -1,0 +1,4 @@
+## 2024-05-13 - IDOR in Resource Controllers
+**Vulnerability:** Insecure Direct Object Reference (IDOR) in `ProjectController`, `TypeController`, and `TechnologyController` due to missing ownership checks on implicitly bound models (`show`, `edit`, `update`, `destroy`).
+**Learning:** Implicit route model binding does not automatically enforce user authorization. Models lacking Laravel Policies expose their actions to any authenticated user modifying the object ID in the URL.
+**Prevention:** Always implement explicit ownership checks (e.g., `if ($model->user_id != auth()->id()) abort(403);`) or utilize Laravel Policies when binding user-owned models in controllers.
