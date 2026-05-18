@@ -57,6 +57,9 @@ class TechnologyController extends Controller
      */
     public function show(Technology $technology)
     {
+        // Security: Enforce explicit ownership check to prevent IDOR
+        if ($technology->user_id != auth()->id()) abort(403, 'Unauthorized action.');
+
         return view("admin.technologies.show", compact("technology"));
     }
 
@@ -68,6 +71,9 @@ class TechnologyController extends Controller
      */
     public function edit(Technology $technology)
     {
+        // Security: Enforce explicit ownership check to prevent IDOR
+        if ($technology->user_id != auth()->id()) abort(403, 'Unauthorized action.');
+
         return view("admin.technologies.edit", compact("technology"));
     }
 
@@ -80,6 +86,9 @@ class TechnologyController extends Controller
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
+        // Security: Enforce explicit ownership check to prevent IDOR
+        if ($technology->user_id != auth()->id()) abort(403, 'Unauthorized action.');
+
         $valData = $request->validated();
         $valData["slug"] = Technology::generateSlug($valData["name"]);
         if(count(Technology::where('slug', $valData["slug"])->get()->toArray()) > 1) {
@@ -97,6 +106,9 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
+        // Security: Enforce explicit ownership check to prevent IDOR
+        if ($technology->user_id != auth()->id()) abort(403, 'Unauthorized action.');
+
         $technology->delete();
         return to_route("admin.technologies.index")->with("message", "Technology successfully deleted");
     }
