@@ -1,0 +1,4 @@
+## 2024-05-22 - [Insecure Direct Object Reference (IDOR) in ProjectController]
+**Vulnerability:** The `show`, `edit`, `update`, and `destroy` methods in `App\Http\Controllers\Admin\ProjectController` use implicit route model binding to fetch projects but do not verify that the authenticated user actually owns the project before operating on it.
+**Learning:** Laravel's route model binding retrieves the model instance directly based on the route parameter, completely bypassing the user's relationships. Therefore, you must explicitly implement authorization checks inside the controller methods (or through Policies/Form Requests) to prevent IDOR attacks.
+**Prevention:** Always enforce authorization logic for endpoints that act on specific resources, e.g., checking `$project->user_id == auth()->id()`.
