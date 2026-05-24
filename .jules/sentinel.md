@@ -1,0 +1,4 @@
+## 2024-05-24 - Fix Insecure Direct Object Reference (IDOR) in Project Controller
+**Vulnerability:** Insecure Direct Object Reference (IDOR) vulnerability due to missing user authorization checks after implicit route model binding in ProjectController methods (show, edit, update, destroy).
+**Learning:** Laravel's route model binding retrieves the model based on ID but does not verify if the current user owns it, leading to IDOR. When comparing model IDs with auth()->id(), loose comparison (`!=`) should be used to avoid type mismatch errors (e.g. string vs integer).
+**Prevention:** Always verify ownership (`if ($model->user_id != auth()->id()) abort(403);`) in controller methods or use Laravel Policies when returning models that belong to specific users.
