@@ -1,0 +1,4 @@
+## 2024-05-28 - Fix Stored XSS vulnerability in Project repository URL
+**Vulnerability:** The `repositoryUrl` field in the `Project` model was not validated. It was rendered directly in an `href` attribute in blade templates. This allowed malicious URLs (like `javascript:alert(1)`) to be stored and executed when clicked, leading to a Stored Cross-Site Scripting (XSS) vulnerability.
+**Learning:** Even if an input seems to be an innocuous string, when used directly inside a sensitive HTML attribute like `href`, it must be validated as a safe URL format (like using Laravel's `url` validation rule) to prevent javascript: or data: URIs from being executed.
+**Prevention:** Always validate all user inputs, especially those used in HTML context. Use the `url` validation rule for fields that store URLs.
