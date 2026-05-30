@@ -1,0 +1,4 @@
+## 2024-05-30 - [Stored XSS via Bypassed FormRequest Validation]
+**Vulnerability:** The `repositoryUrl` input was accessed directly from `$request['repositoryUrl']` in `ProjectController` instead of using `$request->validated()`. Because it was omitted from the FormRequest `rules()`, it bypassed validation entirely, allowing Stored XSS payloads to be saved and rendered in Blade templates.
+**Learning:** In Laravel, accessing `$request['field']` directly can bypass the strict data filtering provided by `$request->validated()`, especially if developers forget to define the field in the FormRequest rules.
+**Prevention:** Always define all expected user inputs in FormRequest rules (e.g., using `url` for links) and exclusively use `$request->validated()` to retrieve safe, filtered data in controllers.
