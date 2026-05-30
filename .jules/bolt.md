@@ -1,0 +1,5 @@
+## 2024-05-18 - Optimized Eloquent `exists()` vs `count()->get()->toArray()`
+
+**Learning:** The application was inefficiently checking for the existence of records with duplicate slugs by executing `count(Model::where(...)->get()->toArray())`. This pattern causes all matching rows to be fetched from the database, instantiated as Eloquent models, converted to an array, and then counted in PHP memory. This is an O(N) memory operation instead of executing a simple `SELECT COUNT(*)` or `EXISTS` query at the database level.
+
+**Action:** Replace `count(Model::where(...)->get()->toArray()) > 0` with `Model::where(...)->exists()` and `count(Model::where(...)->get()->toArray()) > 1` with `Model::where(...)->count() > 1` (or checking if it exists excluding the current ID if possible, but since the slug is generated and we're checking if *any* other exists, `count()` is correct). In fact, `exists()` or `count() > X` directly on the query builder evaluates exactly what we need at the database level.
