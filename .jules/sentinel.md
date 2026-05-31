@@ -1,0 +1,4 @@
+## 2024-05-31 - Fix Stored XSS in repository URL
+**Vulnerability:** User input for `repositoryUrl` was retrieved directly from the `$request` object and saved into the database, bypassing Laravel's FormRequest validation. Because this URL is used unescaped inside an `href` attribute in `resources/views/admin/projects/show.blade.php`, an attacker could inject malicious links (e.g., `javascript:alert(1)`), causing a Stored Cross-Site Scripting (XSS) vulnerability.
+**Learning:** Even when using FormRequests, manually injecting unvalidated keys from `$request` into the `$validated` array defeats the purpose of validation. All user input must exclusively come from `$request->validated()`.
+**Prevention:** Always define validation rules for all expected input fields, particularly those rendered as URLs or inside HTML attributes. Ensure controllers only process data originating from `$request->validated()`.
