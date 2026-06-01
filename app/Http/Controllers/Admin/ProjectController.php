@@ -49,10 +49,8 @@ class ProjectController extends Controller
         if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 0) {
             return to_route("admin.projects.create")->with("message", "Please use a name that is unique, without considering punctuation");
         }
-        if(!$request["repositoryUrl"]) {
+        if(empty($valData["repositoryUrl"])) {
             $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
-        } else {
-            $valData["repositoryUrl"] = $request["repositoryUrl"];
         }
         $valData["starting_date"] = date("Y-m-d") . " " . date("H:i:s");
         $valData["user_id"] = Auth::id();
@@ -105,10 +103,8 @@ class ProjectController extends Controller
         if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 1) {
             return to_route("admin.projects.edit", $project)->with("message", "Please use a name that is unique, without considering punctuation");
         }
-        if(!$request["repositoryUrl"]) {
+        if(empty($valData["repositoryUrl"])) {
             $valData["repositoryUrl"] = Project::generateRepositoryUrl($valData["slug"]);
-        } else {
-            $valData["repositoryUrl"] = $request["repositoryUrl"];
         }
         if($request->hasFile("image")) {
             if($project->image) {
