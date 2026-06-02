@@ -1,0 +1,4 @@
+## 2024-06-02 - Missing Policies in Route Model Binding
+**Vulnerability:** Insecure Direct Object Reference (IDOR) on Project controllers due to missing ownership checks when using Laravel's implicit route model binding.
+**Learning:** The codebase utilizes route model binding without implementing Laravel Policies. This allows any authenticated user to modify or delete resources belonging to other users if ownership checks are not manually enforced. However, global taxonomies like Type and Technology should not have strict IDOR checks to avoid functional regressions.
+**Prevention:** Always manually enforce ownership (e.g., `if ($project->user_id != auth()->id()) abort(403);`) on user-specific resources (like Projects) in controller methods when Policies are not configured, using loose comparison `!=` to prevent false-positive type mismatch errors.
