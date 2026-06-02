@@ -1,0 +1,3 @@
+## 2024-06-02 - Optimize Eloquent relationship aggregations and exist checks
+**Learning:** The application occasionally fetches entire relationship collections into PHP memory unnecessarily (e.g., using `count(Model::where(...)->get()->toArray())` or fetching all records to find the newest/oldest) instead of utilizing efficient database-level query builder methods like `count()`, `exists()`, or `first()`.
+**Action:** Use direct database aggregations (`->exists()`, `->count()`) and limit queries (`->first()`) instead of fetching all records into PHP memory. Also, invoke relationship methods afresh when performing multiple aggregate queries on the same relationship to avoid unintended side-effects.
