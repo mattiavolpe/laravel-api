@@ -1,0 +1,4 @@
+## 2024-06-03 - Missing IDOR Protection in Route Model Binding
+**Vulnerability:** Insecure Direct Object Reference (IDOR) on Project resources (`show`, `edit`, `update`, `destroy`).
+**Learning:** The application uses implicit route model binding (`Project $project`) without corresponding Laravel Policies. Controllers assume ownership implicitly rather than verifying it, allowing any authenticated user to modify resources they don't own by iterating IDs.
+**Prevention:** Always verify `user_id` against `auth()->id()` explicitly in controller methods when policies are absent, using loose comparison `!=` to avoid type mismatch issues from database casts.
