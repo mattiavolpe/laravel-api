@@ -41,7 +41,8 @@ class TypeController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Type::generateSlug($valData["name"]);
-        if(count(Type::where('slug', $valData["slug"])->get()->toArray()) > 0) {
+        // Optimize memory usage by using DB-level exists() instead of loading all models into PHP array
+        if(Type::where('slug', $valData["slug"])->exists()) {
             return to_route("admin.types.create")->with("message", "Please use a name that is unique, without considering punctuation");
         }
         $valData["user_id"] = Auth::user()->id;
@@ -82,7 +83,8 @@ class TypeController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Type::generateSlug($valData["name"]);
-        if(count(Type::where('slug', $valData["slug"])->get()->toArray()) > 1) {
+        // Optimize memory usage by using DB-level count() instead of loading all models into PHP array
+        if(Type::where('slug', $valData["slug"])->count() > 1) {
             return to_route("admin.types.edit", $type)->with("message", "Please use a name that is unique, without considering punctuation");
         }
         $type->update($valData);
