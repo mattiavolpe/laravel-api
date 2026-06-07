@@ -1,0 +1,3 @@
+## 2024-05-24 - Eloquent Existence Checks and Counting
+**Learning:** Using `count(Model::where(...)->get()->toArray())` on an Eloquent query fetches all matching records from the database and loads them into memory as an array before counting them. This is highly inefficient and creates significant memory bottlenecks.
+**Action:** Always use `->exists()` for checking if records exist or `->count()` to count records directly on the query builder. This keeps the execution entirely in the database layer and drastically reduces memory consumption and execution time.
