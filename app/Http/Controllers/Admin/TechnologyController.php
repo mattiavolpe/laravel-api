@@ -41,7 +41,7 @@ class TechnologyController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Technology::generateSlug($valData["name"]);
-        if(count(Technology::where('slug', $valData["slug"])->get()->toArray()) > 0) {
+        if(Technology::where('slug', $valData["slug"])->exists()) { // Optimize Eloquent: Use ->exists() instead of ->get()->toArray() to prevent loading models into memory
             return to_route("admin.technologies.create")->with("message", "Please use a name that is unique, without considering punctuation");
         }
         $valData["user_id"] = Auth::user()->id;
@@ -82,7 +82,7 @@ class TechnologyController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Technology::generateSlug($valData["name"]);
-        if(count(Technology::where('slug', $valData["slug"])->get()->toArray()) > 1) {
+        if(Technology::where('slug', $valData["slug"])->count() > 1) { // Optimize Eloquent: Use ->count() instead of ->get()->toArray() to prevent loading models into memory
             return to_route("admin.technologies.edit", $technology)->with("message", "Please use a name that is unique, without considering punctuation");
         }
         $technology->update($valData);
