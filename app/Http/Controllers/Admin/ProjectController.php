@@ -46,7 +46,8 @@ class ProjectController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Project::generateSlug($valData["name"]);
-        if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 0) {
+        // ⚡ Bolt: Use exists() instead of loading all models into memory to check if slug exists
+        if(Project::where('slug', $valData["slug"])->exists()) {
             return to_route("admin.projects.create")->with("message", "Please use a name that is unique, without considering punctuation");
         }
         if(!$request["repositoryUrl"]) {
@@ -102,7 +103,8 @@ class ProjectController extends Controller
     {
         $valData = $request->validated();
         $valData["slug"] = Project::generateSlug($valData["name"]);
-        if(count(Project::where('slug', $valData["slug"])->get()->toArray()) > 1) {
+        // ⚡ Bolt: Use count() directly on query builder instead of loading all models into memory
+        if(Project::where('slug', $valData["slug"])->count() > 1) {
             return to_route("admin.projects.edit", $project)->with("message", "Please use a name that is unique, without considering punctuation");
         }
         if(!$request["repositoryUrl"]) {
