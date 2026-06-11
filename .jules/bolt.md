@@ -1,0 +1,3 @@
+## 2024-06-11 - Database Exists Check Optimization
+**Learning:** In Laravel/Eloquent, checking for record existence using `count(Model::where(...)->get()->toArray())` is highly inefficient because it loads all matching records into PHP memory and converts them to an array before counting.
+**Action:** Always use `->exists()` or `->count()` directly on the query builder for fast, database-level execution.
