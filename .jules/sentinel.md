@@ -1,0 +1,4 @@
+## 2026-06-11 - Missing Insecure Direct Object Reference (IDOR) Checks in ProjectController
+**Vulnerability:** The application binds Eloquent models via implicit route model binding in the `Admin\ProjectController` (`show`, `edit`, `update`, `destroy` methods) but fails to verify if the currently authenticated user actually owns the `Project` model being accessed.
+**Learning:** Because Laravel's resource routing auto-injects the model without policies, users can access, edit, or delete any project simply by guessing the ID or slug if authorization checks aren't explicitly enforced.
+**Prevention:** Always verify model ownership using `$model->user_id != auth()->id()` or implement Laravel Policies for resource controllers to ensure users can only access their own data.
