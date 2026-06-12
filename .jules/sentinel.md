@@ -1,0 +1,4 @@
+## 2024-05-31 - IDOR in Controllers
+**Vulnerability:** IDOR (Insecure Direct Object Reference) in `ProjectController` methods (`show`, `edit`, `update`, `destroy`).
+**Learning:** The application uses implicit route model binding. Without authorization checks in the controller, any authenticated user can read, update, or delete any project by knowing its ID, as there is no check verifying that `$project->user_id == auth()->id()`. The tests missed this because they didn't assert unauthorized cross-user access. Memory instructs: 'Do not apply strict user-ownership authorization (IDOR checks) to Type and Technology controllers. Restricting them with IDOR checks causes functional regressions.'
+**Prevention:** Always add authorization checks (e.g. `if ($model->user_id != auth()->id()) abort(403);`) or use Laravel Policies when accessing resources that belong to a specific user, to prevent IDOR.
