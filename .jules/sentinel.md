@@ -1,0 +1,4 @@
+## 2024-06-14 - Fix IDOR in ProjectController Route Model Binding
+**Vulnerability:** Insecure Direct Object Reference (IDOR) in `ProjectController` where users could view, edit, or delete other users' projects via route model binding.
+**Learning:** Implicit route model binding in Laravel fetches the model by ID/slug, but does not inherently enforce ownership checks unless a Policy or explicit controller logic is implemented.
+**Prevention:** Always implement explicit ownership checks (e.g., `if ($model->user_id != auth()->id()) abort(403);`) or use Laravel Policies when returning resources scoped to a specific user.
