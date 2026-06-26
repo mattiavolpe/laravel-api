@@ -11,7 +11,8 @@ class DashboardController extends Controller
 {
     public function index() {
         $projects = Auth::user()->projects()->orderByDesc("id")->get();
-        $totalProjects = count($projects);
+        // ⚡ Bolt: Optimize Collection check by using ->count() method
+        $totalProjects = $projects->count();
         if($totalProjects > 0) {
             $newestProject = $projects[0];
             $oldestProject = $projects[$totalProjects - 1];
