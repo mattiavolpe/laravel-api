@@ -1,0 +1,4 @@
+## 2026-06-26 - Prevent Insecure Direct Object Reference (IDOR) in Implicit Route Binding
+**Vulnerability:** Methods using implicit route binding (e.g., `show`, `edit`, `update`, `destroy` in `ProjectController`) failed to check if the authenticated user owned the retrieved model, allowing any user to access/modify other users' records.
+**Learning:** Implicit route binding blindly retrieves the model from the database using the ID in the URL. It does not automatically scope the query to the authenticated user unless explicitly instructed (e.g., via Policies or local checks).
+**Prevention:** Always verify model ownership (`if ($model->user_id != auth()->id()) abort(403);`) within the controller action, or implement Laravel Policies and authorize the action before proceeding. Use loose comparison (`!=`) to prevent false positive 403 errors due to DB type casting.
