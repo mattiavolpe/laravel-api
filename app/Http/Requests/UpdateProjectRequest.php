@@ -29,7 +29,8 @@ class UpdateProjectRequest extends FormRequest
             "slug" => [Rule::unique("projects", "slug")->ignore($this->project), "max:100", "nullable"],
             "image" => [Rule::unique("projects", "image")->ignore($this->project), "image", "max:2048", "nullable"],
             "type_id" => ["exists:types,id", "nullable"],
-            "technologies" => ["exists:technologies,id", "nullable"]
+            "technologies" => ["exists:technologies,id", "nullable"],
+            "repositoryUrl" => ["url", "nullable"] // Prevent Stored XSS
         ];
     }
 }
