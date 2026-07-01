@@ -1,0 +1,3 @@
+## 2026-07-01 - Optimize Eloquent database checks
+**Learning:** Pulling entire Eloquent collections into PHP memory and converting them to arrays just to perform a count or existence check (`count(Model::where(...)->get()->toArray())`) is highly inefficient and risks memory exhaustion as tables grow.
+**Action:** Use database-level aggregation methods `->exists()` for `> 0` existence checks and `->count()` for specific counts (`> 1`) instead of loading all models into PHP memory.
