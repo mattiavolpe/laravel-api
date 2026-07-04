@@ -1,0 +1,3 @@
+## 2024-07-04 - Inefficient Eloquent Counting Pattern
+**Learning:** Using `count(Model::where(...)->get()->toArray())` pulls all matching records into PHP memory as a Collection and converts them to an array before counting. This causes massive memory overhead and N+1 issues, particularly on large tables, when we only need to check existence or count.
+**Action:** Always execute existence and count queries directly at the database level by utilizing the `->exists()` or `->count()` methods instead of `->get()`.
