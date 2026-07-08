@@ -1,0 +1,4 @@
+## 2024-07-08 - IDOR Vulnerability in Resource Controllers
+**Vulnerability:** Implicit route model binding in ProjectController without explicit ownership checks allowed users to access, modify, or delete other users' projects by guessing slugs (Insecure Direct Object Reference).
+**Learning:** Using Route Model Binding without Policies or ownership checks in controller methods exposes records across user boundaries, even behind 'auth' middleware. Shared models like Type and Technology act as global taxonomies and should not be strictly scoped to user IDs despite having the column.
+**Prevention:** Always implement explicit ownership authorization (e.g., via Policies or inline checks like `if ($model->user_id != auth()->id()) abort(403);`) on non-global resources retrieved via route model binding.
