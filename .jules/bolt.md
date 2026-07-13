@@ -1,0 +1,3 @@
+## 2024-07-13 - [Optimize Eloquent count and exists checks]
+**Learning:** [In Laravel, using count(Model::where(...)->get()->toArray()) is a severe performance anti-pattern. It pulls all matching database rows into PHP memory, instantiates Eloquent models, and converts them to arrays just to count them. This can cause memory exhaustion on large datasets.]
+**Action:** [Use ->exists() for checking if any records exist (equivalent to > 0) and ->count() when needing to check for a specific number of records (like > 1). This executes the check directly at the database level, drastically reducing memory usage and database load.]
