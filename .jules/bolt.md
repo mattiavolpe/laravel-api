@@ -1,0 +1,3 @@
+## 2024-07-19 - Eloquent In-Memory Counting Anti-Pattern
+**Learning:** The codebase was frequently using `count(Model::where(...)->get()->toArray())` to check for model existence or count. This is a severe performance anti-pattern because it fetches all matching records from the database into PHP memory as collections and then converts them to arrays just to count them, which can lead to memory exhaustion and slow down the application as the dataset grows.
+**Action:** Always replace `count(Model::where(...)->get()->toArray()) > 0` with `->exists()` and specific count checks with `->count() > X` to execute the query directly at the database level, preventing unnecessary memory consumption.
