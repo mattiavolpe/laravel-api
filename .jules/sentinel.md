@@ -1,0 +1,4 @@
+## 2024-07-21 - IDOR in Project Controller
+**Vulnerability:** Insecure Direct Object Reference (IDOR) in `ProjectController` via implicit route model binding (methods: `show`, `edit`, `update`, `destroy`).
+**Learning:** The application uses implicit route model binding without Laravel Policies. By default, `Project $project` simply retrieves the project by ID, completely bypassing ownership checks. Since `Type` and `Technology` are shared taxonomies, enforcing strict ownership on them causes functional regressions, but `Project` needs tight scoping to the current user.
+**Prevention:** Always implement authorization checks for user-owned resources, for example by checking `if ($model->user_id != auth()->id()) abort(403);`, or by registering explicit Laravel Policies for models that aren't global taxonomies.
