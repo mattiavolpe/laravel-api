@@ -1,0 +1,3 @@
+## 2024-07-26 - Avoid loading full Eloquent models for count checks
+**Learning:** Checking for model existence using `count(Model::where(...)->get()->toArray())` is a severe performance bottleneck. It executes a `SELECT *` query, loads all results into memory as Eloquent models, and then converts them to arrays just to count them. This can cause memory exhaustion on large datasets.
+**Action:** Always use database-level aggregations. Use `->exists()` for checking if any record matches, and `->count()` when the specific number of records is needed, ensuring the counting happens efficiently in the database.
