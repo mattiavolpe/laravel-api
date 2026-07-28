@@ -1,0 +1,3 @@
+## 2024-05-24 - Optimize Eloquent existence checks
+**Learning:** Found multiple instances where the application checks for record existence or count by fetching entire records, executing the query, and converting the collection to a PHP array: `count(Model::where(...)->get()->toArray()) > 0`. This pulls all matching records into PHP memory, causing significant overhead and memory exhaustion for large datasets.
+**Action:** Always execute existence and count checks directly at the database level using `->exists()` (for `> 0`) and `->count()` (for `> 1` or specific numbers) instead of pulling records into PHP memory.
