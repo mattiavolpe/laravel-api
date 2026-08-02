@@ -1,0 +1,3 @@
+## 2024-08-02 - Optimize Eloquent Exists/Count Checks
+**Learning:** Found a pattern across multiple controllers (`TechnologyController`, `TypeController`, `ProjectController`) where database existence checks and specific count checks were performed by loading all matched records into memory using `get()->toArray()` and then running `count()` on the array. This is a severe memory bottleneck for large datasets as it pulls unnecessary rows and hydrates models before dropping them.
+**Action:** Always use Eloquent's `->exists()` for "> 0" checks, and `->count()` directly at the query builder level when counting specific rows (e.g. "> 1") to execute the check entirely at the database level and prevent PHP memory exhaustion.
