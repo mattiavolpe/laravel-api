@@ -1,0 +1,4 @@
+## 2024-08-06 - Missing Ownership Checks in Implicit Route Model Binding
+**Vulnerability:** Insecure Direct Object Reference (IDOR) vulnerabilities exist in controllers using implicit route model binding (e.g., `ProjectController`) because they do not verify if the authenticated user actually owns the retrieved model.
+**Learning:** Laravel's route model binding automatically resolves models from the database based on the route parameter, but it does not inherently apply authorization policies unless explicitly defined. This architectural pattern bypasses standard ownership scoping, exposing data to any authenticated user.
+**Prevention:** Always implement explicit ownership checks (e.g., `if ($model->user_id !== auth()->id()) abort(403);`) in controller methods, or use Laravel Policies, whenever retrieving user-specific resources via route model binding.
