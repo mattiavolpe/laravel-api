@@ -1,0 +1,3 @@
+## 2024-05-24 - Eloquent Memory Exhaustion Anti-pattern
+**Learning:** The codebase relies heavily on an anti-pattern of loading full Eloquent collections into memory via `->get()->toArray()` just to count records for slug uniqueness validation in controllers (e.g., Project, Type, Technology). This causes unnecessary O(n) memory consumption and serialization overhead for what should be simple scalar database queries.
+**Action:** Replace all instances of `count(...->get()->toArray()) > 0` with `->exists()` and `count(...->get()->toArray()) > 1` with `->count() > 1` to execute validations directly at the database level and prevent memory exhaustion.
