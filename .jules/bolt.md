@@ -1,0 +1,3 @@
+## 2024-08-14 - Replace count(Model::where(...)->get()->toArray()) with ->exists() / ->count() > 1
+**Learning:** In Laravel/Eloquent, pulling all matching records into PHP memory using `count(Model::where(...)->get()->toArray())` just to check for existence or count is a massive performance bottleneck and memory drain. It executes `SELECT *` and creates full model instances, only to convert them to arrays and count them in PHP.
+**Action:** Always execute existence/count checks directly at the database level. Use `->exists()` for checking if any records exist (`> 0`), and `->count() > 1` when needing to check if multiple records exist, saving significant memory and execution time.
