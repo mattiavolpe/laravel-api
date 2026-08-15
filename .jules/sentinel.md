@@ -1,0 +1,4 @@
+## 2024-08-15 - Implicit Route Model Binding IDOR Risk
+**Vulnerability:** Insecure Direct Object Reference (IDOR) vulnerabilities on resource controllers when using implicit route model binding without accompanying Laravel Policies.
+**Learning:** The codebase relies on route model binding to inject Eloquent models into controller methods (e.g., `show(Project $project)`), but fails to verify that the authenticated user owns the injected model, allowing any authenticated user to access any project by ID/slug.
+**Prevention:** Always implement explicit ownership checks (e.g., `if ($model->user_id != auth()->id()) abort(403);`) in controller methods, or use Laravel Policies when using implicit route model binding for user-specific resources. Note: Taxonomy controllers like Type and Technology act as global shared resources and do not require IDOR checks.
