@@ -1,0 +1,4 @@
+## 2024-05-15 - Missing IDOR protection in implicit route model binding
+**Vulnerability:** The `ProjectController` uses implicit route model binding (`Project $project`) for `show`, `edit`, `update`, and `destroy` methods, but does not verify that the authenticated user actually owns the project. An attacker could access or modify projects belonging to other users by changing the ID in the URL.
+**Learning:** Implicit route model binding automatically resolves the model, but it does NOT automatically scope it to the currently authenticated user unless explicitly configured or checked.
+**Prevention:** Always verify user ownership when accessing user-specific resources via route model binding (e.g., `if ($project->user_id != auth()->id()) abort(403);`), or use explicit scoping in route definitions.
