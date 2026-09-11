@@ -1,0 +1,3 @@
+## 2025-03-05 - Bolt: Optimize Eloquent collections and checks
+**Learning:** In Laravel/Eloquent, using `count(Model::where(...)->get()->toArray())` for counting or existence checks loads the entire collection into memory, which is inefficient. Furthermore, retrieving the first and last items from a collection by loading the whole set and using array indices is inefficient.
+**Action:** Use database-level queries directly: `->exists()` for `> 0` checks, and `->count()` for specific count checks. Avoid loading entire collections into PHP memory just to access the first or last elements by using database-level queries like `->latest('id')->first()` and `->oldest('id')->first()`.
