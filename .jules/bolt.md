@@ -1,0 +1,3 @@
+## 2024-09-12 - Prevent Memory Exhaustion via Eloquent Queries
+**Learning:** Using `->get()->toArray()` or loading entire relations just to access `[0]`, `[$count - 1]` or run `count()` pulls entire datasets into PHP memory. This codebase frequently does this for validation checks and dashboard stats, which could cause out-of-memory errors on production as tables grow.
+**Action:** Always use database-level methods like `->exists()`, `->count()`, `->latest()->first()`, and `->oldest()->first()` instead of fetching collections. When reusing the base query builder for multiple terminal methods, apply `(clone $query)` to prevent query mutation.
