@@ -10,11 +10,15 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function index() {
-        $projects = Auth::user()->projects()->orderByDesc("id")->get();
-        $totalProjects = count($projects);
+        $query = Auth::user()->projects();
+
+        // ⚡ Bolt: Execute count query directly at database level instead of loading full collection into memory
+        $totalProjects = (clone $query)->count();
+
         if($totalProjects > 0) {
-            $newestProject = $projects[0];
-            $oldestProject = $projects[$totalProjects - 1];
+            // ⚡ Bolt: Fetch only the needed records directly from the database using latest/oldest
+            $newestProject = (clone $query)->latest('id')->first();
+            $oldestProject = (clone $query)->oldest('id')->first();
             return view("admin.dashboard", compact("totalProjects", "newestProject", "oldestProject"));
         }
         return view("admin.dashboard", compact("totalProjects"));
