@@ -1,0 +1,3 @@
+## 2024-09-20 - Eloquent Collection Memory Exhaustion
+**Learning:** Loading entire Eloquent collections into PHP memory (e.g., `$projects->get()`) just to perform basic array operations like counting or accessing the first/last elements causes severe performance bottlenecks and memory exhaustion, especially for large datasets.
+**Action:** Always utilize database-level terminating methods like `->count()`, `->exists()`, `->latest()->first()`, and `->oldest()->first()` to offload computation to the database. When reusing a base query builder instance for multiple checks, wrap it in `(clone $query)` to prevent state mutation across consecutive method calls.
