@@ -1,0 +1,3 @@
+## 2024-09-24 - Optimize Eloquent Queries
+**Learning:** Loading entire collections into PHP memory just to access the first or last elements (e.g., `$projects[0]` or `$projects[$count - 1]`) is a performance bottleneck in this codebase's architecture. Using terminating methods on a shared base query builder instance mutates its state.
+**Action:** Use database-level queries like `->latest('id')->first()` and `->oldest('id')->first()` instead. When executing multiple terminating methods on a shared base query builder instance, use `(clone $query)` for each execution to prevent the builder's state from being mutated.
