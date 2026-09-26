@@ -1,0 +1,3 @@
+## 2024-09-26 - Optimize Eloquent counts and existence checks
+**Learning:** In Laravel/Eloquent, using `count(Model::where(...)->get()->toArray())` or fetching entire collections into memory to access a few elements (e.g., first/last) leads to severe performance degradation and memory exhaustion as tables grow.
+**Action:** Always prefer database-level aggregations and query constraints: use `->exists()` for `> 0` existence checks, `->count()` for exact counts, and specific queries (e.g., `->latest()->first()`) instead of collection manipulation to ensure minimal data transfer and execution time.
