@@ -1,0 +1,3 @@
+## 2024-10-04 - Laravel memory optimization
+**Learning:** Avoid pulling records into PHP memory using `count(Model::where(...)->get()->toArray())` for counting or existence checks. Loading entire collections to access the first or last elements (e.g., `$projects[0]` or `$projects[$count - 1]`) is also slow.
+**Action:** Use database-level queries like `->exists()` for `> 0` checks, `->count()` for specific count checks, and `->latest('id')->first()` / `->oldest('id')->first()` to reduce memory consumption and execution time. When executing multiple terminating methods on a shared base query builder instance, use `(clone $query)` for each execution to prevent the builder's state from being mutated.
