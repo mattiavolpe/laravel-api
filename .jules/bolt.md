@@ -1,0 +1,3 @@
+## 2025-01-20 - Optimize Eloquent Exists/Count Queries
+**Learning:** Using `count(Model::where(...)->get()->toArray())` is a major performance bottleneck because it pulls the entire collection of matching models into PHP memory, serializes them to an array, and then counts the array, potentially causing memory exhaustion and slowing down requests significantly.
+**Action:** Always use database-level queries like `->exists()` for checking existence (`> 0`) and `->count()` for specific thresholds (e.g., `> 1`) to execute the query natively in SQL and avoid unnecessary memory usage and processing overhead.
