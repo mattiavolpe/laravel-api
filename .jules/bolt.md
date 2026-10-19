@@ -1,0 +1,3 @@
+## 2024-10-19 - Eloquent Memory Exhaustion
+**Learning:** Loading entire Eloquent collections into PHP memory using `->get()` or `->get()->toArray()` just to perform basic checks like `count()`, `exists()`, or fetching first/last elements causes severe memory bloat and slow execution times, especially on large datasets. Executing multiple terminating queries on the same query builder also mutates its state.
+**Action:** Use database-level queries (`->exists()`, `->count()`, `->latest('id')->first()`) to prevent loading models into memory. Use `(clone $query)` when executing multiple terminating methods on a shared base query builder to prevent state mutation.
