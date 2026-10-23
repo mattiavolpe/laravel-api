@@ -1,0 +1,4 @@
+## YYYY-MM-DD - [Insecure Direct Object Reference (IDOR) in Implicit Route Model Binding]
+**Vulnerability:** IDOR in `ProjectController` because Laravel implicit route model binding retrieves a model by its primary key without validating ownership against the currently authenticated user in methods `show`, `edit`, `update`, and `destroy`.
+**Learning:** In controllers for user-specific resources that rely on implicit binding (e.g., `show(Project $project)`), Laravel resolves the model globally. A user can pass another user's project ID in the URL and access/modify it if the controller methods do not enforce authorization (e.g., checking `$model->user_id != auth()->id()`).
+**Prevention:** Manually enforce ownership checks (e.g., `if ($project->user_id != auth()->id()) abort(403);`) inside controller methods or use Policies/Middleware to verify authorization before handling requests.
