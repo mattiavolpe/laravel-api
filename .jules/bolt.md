@@ -1,0 +1,3 @@
+## 2024-05-24 - Eloquent Collection Loading Anti-Pattern
+**Learning:** The codebase extensively used `count(Model::where(...)->get()->toArray())` for simple existence and count checks. This is a severe anti-pattern because `->get()->toArray()` loads the entire result set from the database into PHP memory before counting it, which can cause memory exhaustion and slow execution times for large datasets.
+**Action:** Always use database-level queries like `->exists()` for `> 0` checks and `->count()` for specific thresholds to evaluate conditions efficiently at the database layer without pulling unnecessary data into PHP memory.
